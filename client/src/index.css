@@ -5,9 +5,48 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* font-family: 'Open Sans', sans-serif; */
+  font-family: 'Zen Antique', serif;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: 'Open Sans', sans-serif;
+  font-family: 'Zen Antique', serif;
+}
+
+.cardfood {
+  background-color: white;
+  display: inline-block;
+  border: groove #EEEEEE 0.5rem;
+  border-radius: 20px;
+  margin-top: 20px;
+}
+.imagefood {
+  width: 80%;
+  height: 8rem;
+  margin-left: auto; 
+  margin-right: auto;
+  object-fit: cover;
+  display: block;
+  border-radius: 20px;
+  margin-top: 1.5rem;
+}
+.iconcart {
+  width: 1.5rem;
+  height: 1.5rem;
+  background-color: red;
+  color: white;
+  border-radius: 7px;
+  float: right;
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+}
+.price {
+  display: inline;
+  color: #FF3333;
+  /* background-color: red; */
+  margin-left: 1.5rem;
+}
+.card-title {
+  margin-left: 1.5rem;
 }
