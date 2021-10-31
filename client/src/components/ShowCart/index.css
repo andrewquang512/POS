@@ -1,0 +1,127 @@
+/* cart icon */
+.cart-icon{
+    position: fixed;
+    top: 30px;
+    right: 30px;
+    cursor: pointer;
+    /* z-index: 1; */
+    padding:0;
+    margin:0;
+}
+.cart-icon .fa-shopping-cart{
+    font-size: 48px;
+    color: #f7442e;
+}
+/*  */
+@keyframes fadeInFromNone {
+    0% {
+        display: none;
+        opacity: 0;
+    }
+
+    1% {
+        display: block;
+        opacity: 0;
+    }
+
+    100% {
+        display: block;
+        opacity: 1;
+    }
+}
+/*  */
+.cart{
+    position: fixed;
+    background-color: rgb(245, 237, 237);
+    top:0;
+    bottom: 0;
+    right: 0;
+    z-index: 1;
+    height: 100vh;
+    width: 400px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    display: none;
+    animation: fadeInFromNone 0.5s ease-out;
+    
+}
+.cart-header{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 22px;
+    margin-top:12px;
+    
+}
+.cart-header-title{
+    color: #f7442e;
+    /* background-color: #ccc; */
+    border-radius: 4px;
+    padding: 2px 6px;
+    margin-left: 4px;
+
+}
+.display{
+    display: block;
+}
+.cart-header-title .fa-shopping-cart{
+ margin-right: 8px;   
+}
+.cart-header-button{
+    font-size: 22px;
+    border: solid 1px #ccc;
+    padding: 4px 12px;
+    margin-right: 8px;
+    font-weight: bold;
+    border-radius: 10px;
+}
+.cart-list{
+display: block;
+padding:4px;
+margin: 0;
+max-height: 72vh;
+overflow: auto;
+}
+.cart-payment{
+margin:0 4px;
+}
+.cart-payment-total{
+    display:flex;
+    justify-content: space-between;
+}
+.cart-payment-total-text{
+    font-weight: bold;
+    font-size: 20px;
+}
+.cart-payment-total-origin{
+    text-align: right;
+    line-height: 0;
+    color:#f7442e;
+    font-size: 20px;
+
+}
+.cart-payment-total-tax{
+    font-size: 12px;
+}
+.cart-payment-button{
+    width: 100%;
+    font-size: 36px;
+    color:#fff;
+    background-color: #f7442e;
+    border:1px solid #ccc;
+    border-radius: 8px;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+}
+.cart-payment-button:hover{
+    color:#f7442e;
+    background-color: #fff;
+}
+/* cart close */
+.cart-close{
+    position: fixed;
+    top:4px;
+    right: 12px;
+    color:red;
+    cursor: pointer;
+}
