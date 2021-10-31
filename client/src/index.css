@@ -5,7 +5,6 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /* font-family: 'Open Sans', sans-serif; */
   font-family: 'Zen Antique', serif;
 }
 
@@ -17,9 +16,11 @@ code {
 .cardfood {
   background-color: white;
   display: inline-block;
-  border: groove #EEEEEE 0.5rem;
+  border: solid #777777 0.1rem;
   border-radius: 20px;
-  margin-top: 20px;
+  margin-top: 40px;
+  transition: all 0.6s;
+  box-shadow: 0.13rem 0.13rem 0.13rem 0.13rem #777777;
 }
 .imagefood {
   width: 80%;
@@ -30,7 +31,12 @@ code {
   display: block;
   border-radius: 20px;
   margin-top: 1.5rem;
+  box-shadow: 1.5px 1.5px 1.5px 1.5px #EEEEEE;
 }
+.cardfood:hover, .cardfood:active {
+  transform: scale(1.1);
+}
+
 .iconcart {
   width: 1.5rem;
   height: 1.5rem;
@@ -50,3 +56,82 @@ code {
 .card-title {
   margin-left: 1.5rem;
 }
+/* ************************************Pop - Up******************************************** */
+
+.modal {
+  width: 100%;
+  border-radius: 20px;
+  backdrop-filter: blur(8px);
+}
+.modal > .header {
+  font-size: 18px;
+  padding: 10px;
+  background-color: #DDDDDD;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+.modal > .content {
+  background-color: #EEEEEE;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  /* background-color: red; */  
+}
+.modal > .close {
+  cursor: pointer;
+  position: absolute;
+  display: block;
+  padding: 2px 5px;
+  line-height: 20px;
+  right: -5px;
+  margin-top: 10px;
+  margin-right: 15px;
+  top: 0px;
+  font-size: 24px;
+  border: none;
+}
+
+.image_Pop {
+  margin: 20px 0px 10px 20px;
+  border-radius: 20px;
+  object-fit: cover;
+}
+.contentPopup {
+  margin-top: 20px;
+  /* background-color: red; */
+}
+.textright {
+  text-align: right;
+}
+.textBig {
+  font-size: 105%;
+  font-weight: 600;
+}
+.iconPop {
+  color: red;
+  border: 10px;
+  border-radius: 10px;
+  width: 1.5rem;
+  height: 1.5rem;
+  vertical-align: middle;
+}
+.totalPrice {
+  background-color:red;
+  border-radius: 5px;
+  margin-top: 20px;
+  text-align: center;
+  height: 40px;
+  padding-top: 10px;
+  color: white;
+  font-weight: 100;
+  transition: all 0.3s;
+}
+.totalPrice:hover, .totalPrice:active {
+  transform: scale(1.03);
+}
+.iconTotalPrice {
+  vertical-align: middle;
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-right: 20px;
+}
+/* ************************************Pop - Up******************************************** */

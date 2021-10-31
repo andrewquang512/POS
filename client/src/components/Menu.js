@@ -14,6 +14,8 @@ export default function Menu() {
                                 name={Food.name}
                                 price={Food.price}
                                 image={Food.image}
+                                SKU={Food.SKU}
+                                description={Food.description}
                             />
                         </Col>
                     ))}
