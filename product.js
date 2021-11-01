@@ -1,7 +1,7 @@
 const Foods= [
     {
 
-        ID:'01',
+        SKU:'01',
         image:'/image/banhxeo.jpg',
         name:'Bánh xèo',
         description: "- 2 cái Bánh Xèo \ - 6 cái bánh tráng \ - Rau, nước mắm, đồ chua ăn kèm" ,
@@ -13,7 +13,7 @@ const Foods= [
     },
     {
 
-        ID:'02',
+        SKU:'02',
         image:'/image/Banhmibokho.jpg',
         name:'Bánh mì bò kho',
         description: "- 1 phần bò kho \ - 2 bánh mì \ - Rau thơm" ,
@@ -25,7 +25,7 @@ const Foods= [
     },    
     {
 
-        ID:'03',
+        SKU:'03',
         image:'/image/Bunbohue.jpg',
         name:'Bún bò huế',
         description: "- 200g bò gân \ - 1 giò heo \ - 50g riêu cua\ - Rau, gia vị" ,
@@ -37,7 +37,7 @@ const Foods= [
     },    
     {
 
-        ID:'04',
+        SKU:'04',
         image:'/image/chaolong.jpg',
         name:'Cháo lòng',
         description: "- 1 phần cháo với lòng heo các loại \ - 1 bánh tráng nướng \ - Rau thơm, gia vị" ,
@@ -49,7 +49,7 @@ const Foods= [
     },   
     {
 
-        ID:'05',
+        SKU:'05',
         image:'/image/comtam.jpg',
         name:'Cơm tấm',
         description: "- 1 phần cơm \ - 1 sườn nướng \ - 1 trứng chả\ - Bì, tóp mỡ, dưa leo, cà chua\ - Nươc mắn, gia vị các loại" ,       
@@ -61,7 +61,7 @@ const Foods= [
     },    
     {
 
-        ID:'06',
+        SKU:'06',
         image:'/image/Ganuong.jpg',
         name:'Gà nướng cơm lam',
         description: "- 1 gà nướng nguyên con 1,2kg -1,5kg \ - 4 ống cơm lam \ - rau, gia vị" ,
@@ -73,7 +73,7 @@ const Foods= [
     },    
     {
 
-        ID:'07',
+        SKU:'07',
         image:'/image/Laucaduoi.jpg',
         name:'Lẫu cá đuối',
         description: "- 1 phần lẫu cá đuối + hải sản 2 người ăn \ - 2 phần bún sợi \ - 2 bánh tráng nướng\ - rau, gia vị" ,
@@ -85,7 +85,7 @@ const Foods= [
     },    
     {
 
-        ID:'08',
+        SKU:'08',
         image:'/image/mixao.jpg',
         name:'Mì xào hải sản',
         description: "- 200g mì \ - 100g tôm \ -100g thịt\ - Gia vị" ,
@@ -97,7 +97,7 @@ const Foods= [
     },    
     {
 
-        ID:'09',
+        SKU:'09',
         image:'/image/nemnuong.jpg',
         name:'Nem nướng',
         description: "- 5 cây nem nướng \ - 5 bánh tráng \ - rau, gia vị các loại" ,
@@ -109,7 +109,7 @@ const Foods= [
     },    
     {
 
-        ID:'10',
+        SKU:'10',
         image:'/image/Pho.png',
         name:'Phở',
         description: "- 200g bò \ - 200g phở sợi \ - rau, gia vị" ,
@@ -121,7 +121,7 @@ const Foods= [
     },    
     {
 
-        ID:'11',
+        SKU:'11',
         image:'/image/nuocsuoi.jpg',
         name:'Nước suối',
         description: "Nước suối Aquafina 500ml" ,
@@ -133,7 +133,7 @@ const Foods= [
     },    
     {
 
-        ID:'12',
+        SKU:'12',
         image:'/image/coca.jpg',
         name:'Coca',
         description: "Coca vị nguyên bản 500ml" ,
@@ -145,7 +145,7 @@ const Foods= [
     },    
     {
 
-        ID:'13',
+        SKU:'13',
         image:'/image/nuoccam.jpg',
         name:'Cam vắt',
         description: "400ml cam vắt" ,
@@ -157,7 +157,7 @@ const Foods= [
     },    
     {
 
-        ID:'14',
+        SKU:'14',
         image:'/image/tratac.png',
         name:'Trà tắc',
         description: "- 300ml Trà tắc" ,
@@ -169,7 +169,7 @@ const Foods= [
     },    
     {
 
-        ID:'15',
+        SKU:'15',
         image:'/image/sodachanh.jpg',
         name:'Soda Chanh',
         description: "- 300ml Soda chanh" ,
