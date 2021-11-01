@@ -1,9 +1,9 @@
 const Foods= [
     {
-
+        type: 'Đặc sản vùng miền',
         SKU:'01',
         image:'/image/banhxeo.jpg',
-        name:'Bánh xèo',
+        name:'Bánh xèo miền tây',
         description: "- 2 cái Bánh Xèo \ - 6 cái bánh tráng \ - Rau, nước mắm, đồ chua ăn kèm" ,
         price:50,
         GIaGoc:40,
@@ -12,20 +12,8 @@ const Foods= [
         STT:3,
     },
     {
-
+        type: 'Đặc sản vùng miền',
         SKU:'02',
-        image:'/image/Banhmibokho.jpg',
-        name:'Bánh mì bò kho',
-        description: "- 1 phần bò kho \ - 2 bánh mì \ - Rau thơm" ,
-        price:30, 
-        GIaGoc:25,
-        Soluong:2,
-        Dangco:8,
-        STT:4,
-    },    
-    {
-
-        SKU:'03',
         image:'/image/Bunbohue.jpg',
         name:'Bún bò huế',
         description: "- 200g bò gân \ - 1 giò heo \ - 50g riêu cua\ - Rau, gia vị" ,
@@ -34,10 +22,58 @@ const Foods= [
         Soluong:2,
         Dangco:6,
         STT:1,
+    },  
+    {
+        type: 'Đặc sản vùng miền',
+        SKU:'03',
+        image:'/image/Ganuong.jpg',
+        name:'Gà nướng cơm lam',
+        description: "- 1 gà nướng nguyên con 1,2kg -1,5kg \ - 4 ống cơm lam \ - rau, gia vị" ,
+        price:150,
+        GIaGoc:100,
+        Soluong:2,
+        Dangco:1,
+        STT:2,
+    },
+    {
+        type: 'Đặc sản vùng miền',
+        SKU:'04',
+        image:'/image/nemnuong.jpg',
+        name:'Nem nướng Nha Trang',
+        description: "- 5 cây nem nướng \ - 5 bánh tráng \ - rau, gia vị các loại" ,
+        price:30,
+        GIaGoc:20,
+        Soluong:2,
+        Dangco:5,
+        STT:5,
     },    
     {
-
-        SKU:'04',
+        type: 'Đặc sản vùng miền',
+        SKU:'05',
+        image:'/image/Pho.png',
+        name:'Phở Hà Nội',
+        description: "- 200g bò \ - 200g phở sợi \ - rau, gia vị" ,
+        price:40,
+        GIaGoc:30,
+        Soluong:2,
+        Dangco:0,
+        STT:1,
+    },    
+    {
+        type: 'Bình dân',
+        SKU:'06',
+        image:'/image/Banhmibokho.jpg',
+        name:'Bánh mì bò kho',
+        description: "- 1 phần bò kho \ - 2 bánh mì \ - Rau thơm" ,
+        price:30, 
+        GIaGoc:25,
+        Soluong:2,
+        Dangco:8,
+        STT:4,
+    },      
+    {
+        type: 'Bình dân',
+        SKU:'07',
         image:'/image/chaolong.jpg',
         name:'Cháo lòng',
         description: "- 1 phần cháo với lòng heo các loại \ - 1 bánh tráng nướng \ - Rau thơm, gia vị" ,
@@ -48,8 +84,8 @@ const Foods= [
         STT:1,
     },   
     {
-
-        SKU:'05',
+        type: 'Bình dân',
+        SKU:'08',
         image:'/image/comtam.jpg',
         name:'Cơm tấm',
         description: "- 1 phần cơm \ - 1 sườn nướng \ - 1 trứng chả\ - Bì, tóp mỡ, dưa leo, cà chua\ - Nươc mắn, gia vị các loại" ,       
@@ -58,34 +94,10 @@ const Foods= [
         Soluong:2,
         Dangco:6,
         STT:2,
-    },    
+    },        
     {
-
-        SKU:'06',
-        image:'/image/Ganuong.jpg',
-        name:'Gà nướng cơm lam',
-        description: "- 1 gà nướng nguyên con 1,2kg -1,5kg \ - 4 ống cơm lam \ - rau, gia vị" ,
-        price:150,
-        GIaGoc:100,
-        Soluong:2,
-        Dangco:1,
-        STT:2,
-    },    
-    {
-
-        SKU:'07',
-        image:'/image/Laucaduoi.jpg',
-        name:'Lẫu cá đuối',
-        description: "- 1 phần lẫu cá đuối + hải sản 2 người ăn \ - 2 phần bún sợi \ - 2 bánh tráng nướng\ - rau, gia vị" ,
-        price:90,
-        GIaGoc:60,
-        Soluong:2,
-        Dangco:3,
-        STT:5,
-    },    
-    {
-
-        SKU:'08',
+        type: 'Bình dân',
+        SKU:'09',
         image:'/image/mixao.jpg',
         name:'Mì xào hải sản',
         description: "- 200g mì \ - 100g tôm \ -100g thịt\ - Gia vị" ,
@@ -94,33 +106,33 @@ const Foods= [
         Soluong:2,
         Dangco:1,
         STT:3,
-    },    
+    },   
     {
-
-        SKU:'09',
-        image:'/image/nemnuong.jpg',
-        name:'Nem nướng',
-        description: "- 5 cây nem nướng \ - 5 bánh tráng \ - rau, gia vị các loại" ,
-        price:30,
-        GIaGoc:20,
+        type: 'Lẫu',
+        SKU:'10',
+        image:'/image/Laucaduoi.jpg',
+        name:'Lẫu cá đuối',
+        description: "- 1 phần lẫu cá đuối + hải sản 2 người ăn \ - 2 phần bún sợi \ - 2 bánh tráng nướng\ - rau, gia vị" ,
+        price:90,
+        GIaGoc:60,
         Soluong:2,
-        Dangco:5,
+        Dangco:3,
         STT:5,
-    },    
+    },     
     {
-
+        type: 'Món Tây',
         SKU:'10',
         image:'/image/Pho.png',
-        name:'Phở',
+        name:'Phở Hà Nội',
         description: "- 200g bò \ - 200g phở sợi \ - rau, gia vị" ,
         price:40,
         GIaGoc:30,
         Soluong:2,
         Dangco:0,
         STT:1,
-    },    
+    }, 
     {
-
+        type: 'Nước',
         SKU:'11',
         image:'/image/nuocsuoi.jpg',
         name:'Nước suối',
@@ -132,7 +144,7 @@ const Foods= [
         STT:6,
     },    
     {
-
+        type: 'Nước',
         SKU:'12',
         image:'/image/coca.jpg',
         name:'Coca',
@@ -144,7 +156,7 @@ const Foods= [
         STT:2,
     },    
     {
-
+        type: 'Nước',
         SKU:'13',
         image:'/image/nuoccam.jpg',
         name:'Cam vắt',
@@ -156,7 +168,7 @@ const Foods= [
         STT:1,
     },    
     {
-
+        type: 'Nước',
         SKU:'14',
         image:'/image/tratac.png',
         name:'Trà tắc',
@@ -168,7 +180,7 @@ const Foods= [
         STT:3,
     },    
     {
-
+        type: 'Nước',
         SKU:'15',
         image:'/image/sodachanh.jpg',
         name:'Soda Chanh',
