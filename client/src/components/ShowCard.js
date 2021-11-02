@@ -29,12 +29,6 @@ function Display(props) {
     <label style={{ marginLeft: '1rem'}} >{props.message}</label>
   )
 }
-function DisplayPrice(props) {
-  return (
-    <label style={{ textAlign: 'center'}} > <BsCart2 className="iconTotalPrice"/>{props.message* props.price} .000 Đ</label>
-  )
-}
-
 const contentStyle = {
   height: "60%",
   width: "60%",
@@ -43,7 +37,7 @@ export default function ShowCard(props) {
   const [counter, setCounter] = useState(1);
   const incrementCounter = () => setCounter(counter + 1);
   let decrementCounter = () => setCounter(counter - 1);
-  if(counter<=1) {
+  if(counter <= 1) {
     decrementCounter = () => setCounter(1);
   }
   return (
@@ -69,7 +63,7 @@ export default function ShowCard(props) {
       
         <div className="modal">
           <div className="header">ADD TO CART</div>
-          <a className="close" onClick={close}>&times;</a>
+          <a className="close" onClick={close} href>&times;</a>
           <div className="content">
             {' '}
             <Container>
@@ -79,33 +73,41 @@ export default function ShowCard(props) {
                 </Col>
                 <Col lg={8}>
                   <div className="contentPopup">
-                      <Row className="textBig" >
-                        <Col md={3}>SKU</Col>
-                        <Col md={6}>Name</Col>
-                        <Col className="textright" md={3}>Price</Col>
-                      </Row> 
+                    <Row className="textBig" >
+                      <Col md={3}>SKU</Col>
+                      <Col md={6}>Name</Col>
+                      <Col className="textright" md={3}>Price</Col>
+                    </Row> 
+                    <Row>
+                      <Col md={3}>{props.SKU}</Col>
+                      <Col md={6}>{props.name}</Col>
+                      <Col className="textright" md={3}>{props.price}.000 Đ</Col>
+                    </Row> 
+                    <div>{props.description}</div>
+                    <div className="textBig" >
                       <Row>
-                        <Col md={3}>{props.SKU}</Col>
-                        <Col md={6}>{props.name}</Col>
-                        <Col className="textright" md={3}>{props.price}.000 Đ</Col>
-                      </Row> 
-                      <div>{props.description}</div>
-                      <div className="textBig" >
-                        <Row>
-                          <Col md={6}>Quantity :</Col>
-                          <Col className="textright" md={6}> 
-                              <ButtonDecrement className="iconPop" onClickFunc={decrementCounter}/>
-                              <Display message={counter}/> 
-                              <ButtonIncrement onClickFunc={incrementCounter}/>
-                          </Col>
-                        </Row>
-                        <div className="totalPrice"><DisplayPrice message={counter} price={props.price}/></div>
+                        <Col md={6}>Quantity :</Col>
+                        <Col className="textright" md={6}> 
+                            <ButtonDecrement className="iconPop" onClickFunc={decrementCounter}/>
+                            <Display message={counter}/> 
+                            <ButtonIncrement onClickFunc={incrementCounter}/>
+                        </Col>
+                      </Row>
+                      <div onClick={close}>
+                        <div 
+                          className="totalPrice"
+                          onClick={props.context.addProductToCart.bind(this, props.food)}
+                        >
+                          <label style={{ textAlign: 'center', cursor: 'pointer'}}> 
+                            <BsCart2 className="iconTotalPrice"/>{counter* props.price} .000 Đ
+                          </label>
+                        </div>
                       </div>
+                    </div>
                   </div>
                 </Col>
               </Row>
-            </Container>
-            
+            </Container>  
           </div>
         </div> 
       )}

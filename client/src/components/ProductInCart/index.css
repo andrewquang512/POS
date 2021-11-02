@@ -53,9 +53,6 @@ padding:0 4px;
     color:#f7442e;
     font-size:16px;
 }
-.cart-item-content-bottom-button{
-
-}
 .cart-item-content-bottom-button .fas{
     border:1px solid rgb(121, 121, 121);
     padding:8px;
@@ -76,4 +73,9 @@ padding:0 4px;
 }
 .cart-item-content-bottom-price-tax{
     font-size: 10px;
+}
+.removeItem {
+    position: absolute;
+    right: 0;
+    cursor: pointer;
 }

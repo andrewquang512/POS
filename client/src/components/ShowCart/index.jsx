@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import "./index.css";
 import ProductInCart from "../ProductInCart";
+import ShopContext from "../ShopContext";
+
 const ShowCart = () => {
 
     const handleClickCart=()=>{
@@ -10,13 +12,23 @@ const ShowCart = () => {
         document.querySelector(".cart").classList.remove("display");
         
     }
-  return (
+    // ** ---------------Log-------Add ----------------------------------**
+    const context = useContext(ShopContext);
+    useEffect(() => {
+      console.log(context);
+    }, []);
+    return (
     <>
       <div className="cart-icon"
-      onClick={handleClickCart}
+        onClick={handleClickCart}
       >
     
         <i className="fas fa-shopping-cart"></i>
+        <div className="INCART">
+          {context.cart.reduce((count, curItem) => {
+            return count + curItem.quantity;
+          }, 0)}
+        </div>
       </div>
       <div className="cart">
           <div className="cart-close"
@@ -27,17 +39,20 @@ const ShowCart = () => {
         <div className="cart-header">
           <p className="cart-header-title">
             <i className="fas fa-shopping-cart"></i>
-            Your Cart (6)
+            Your Cart {
+              context.cart.reduce((count, curItem) => {
+                return count + curItem.quantity;
+            }, 0)}
           </p>
           <button className="cart-header-button">DINE IN</button>
         </div>
         <ul className="cart-list">
-          <ProductInCart />
-          <ProductInCart />
-          <ProductInCart />
-          <ProductInCart />
-          <ProductInCart />
-          <ProductInCart />
+          {context.cart.map(cartItem => 
+            <ProductInCart 
+              item={cartItem}
+              context={context}
+            />  
+          )}
         </ul>
         <div className="cart-payment">
           <div className="cart-payment-total">

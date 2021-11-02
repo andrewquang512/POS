@@ -124,14 +124,17 @@ code {
   color: white;
   font-weight: 100;
   transition: all 0.3s;
+  cursor: pointer;
 }
 .totalPrice:hover, .totalPrice:active {
   transform: scale(1.03);
+  cursor: pointer;
 }
 .iconTotalPrice {
   vertical-align: middle;
   width: 1.5rem;
   height: 1.5rem;
   margin-right: 20px;
+  cursor: pointer;
 }
 /* ************************************Pop - Up******************************************** */

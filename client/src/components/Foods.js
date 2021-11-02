@@ -4,8 +4,8 @@ const Foods = [
         "name": "Hamburger",
         "image": "https://lambanhngon.com/news_pictures/cjn1473040618.jpg",
         "price": 30,
-        "SKU": 101,
-        "description": "Cực kì thơm ngon"
+        "SKU": 100,
+        "description": "Cực kì thơm ngon ngon"
     },
     {
         "name": "Coca",
@@ -18,42 +18,42 @@ const Foods = [
         "name": "Mỳ ý",
         "image": "https://cdn.tgdd.vn/2020/08/CookProduct/3-1200x676-2.jpg",
         "price": 45,
-        "SKU": 101,
+        "SKU": 102,
         "description": "Cực kì thơm ngon"
     },
     {
         "name": "Gà rán",
         "image": "https://ameovat.com/wp-content/uploads/2016/05/cach-lam-ga-ran-600x399.jpg",
         "price": 67,
-        "SKU": 101,
+        "SKU": 103,
         "description": "Cực kì thơm ngon"
     },
     {
         "name": "Gà sốt",
         "image": "https://bep360.net/wp-content/uploads/2021/05/ga-hot-sweet-phien-ban-viet.jpg",
         "price": 45,
-        "SKU": 101,
+        "SKU": 104,
         "description": "Cực kì thơm ngon"
     },
     {
         "name": "Kem",
         "image": "https://cdn.dayphache.edu.vn/wp-content/uploads/2016/04/kem-kiwi-min-xot.jpg",
         "price": 15,
-        "SKU": 101,
+        "SKU": 105,
         "description": "Cực kì thơm ngon"
     },
     {
         "name": "Beefsteak",
         "image": "https://images.foody.vn/res/g94/935033/prof/s576x330/foody-upload-api-foody-mobile-5-190827162844.jpg",
         "price": 15,
-        "SKU": 101,
+        "SKU": 106,
         "description": "Cực kì thơm ngon"
     },
     {
         "name": "Kem",
         "image": "https://cdn.dayphache.edu.vn/wp-content/uploads/2016/04/kem-kiwi-min-xot.jpg",
         "price": 15,
-        "SKU": 101,
+        "SKU": 107,
         "description": "Cực kì thơm ngon"
     }
 ]

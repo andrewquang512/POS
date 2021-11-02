@@ -7,6 +7,7 @@
     /* z-index: 1; */
     padding:0;
     margin:0;
+    text-align: center;
 }
 .cart-icon .fa-shopping-cart{
     font-size: 48px;
@@ -78,7 +79,7 @@
 display: block;
 padding:4px;
 margin: 0;
-max-height: 35.5rem;
+max-height: 67%;
 overflow: auto;
 }
 .cart-payment{
@@ -124,4 +125,14 @@ margin:0 4px;
     right: 12px;
     color:red;
     cursor: pointer;
+}
+.INCART {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    font-size: 23px;
+    margin: 0px auto;
+    color: white;
 }
