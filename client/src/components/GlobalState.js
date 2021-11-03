@@ -6,12 +6,12 @@ function GlobalState(props) {
 
   const [cartState, dispatch] = useReducer(shopReducer, { cart: [] });
 
-  const addProductToCart = product => {
-    dispatch({ type: ADD_PRODUCT, product: product });
+  const addProductToCart = (product, num) => {
+    dispatch({ type: ADD_PRODUCT, product: product, num: num });
   };
 
-  const removeProductFromCart = productId => {
-    dispatch({ type: REMOVE_PRODUCT, productId: productId });
+  const removeProductFromCart = (productId, num) => {
+    dispatch({ type: REMOVE_PRODUCT, productId: productId, num: num });
   };
 
   return (
