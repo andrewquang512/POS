@@ -47,22 +47,28 @@ const ShowCart = () => {
           <button className="cart-header-button">DINE IN</button>
         </div>
         <ul className="cart-list">
-          {context.cart.map(cartItem => 
+          {context.cart.map((cartItem, index)=> 
             <ProductInCart 
               item={cartItem}
               context={context}
+              index={index}
             />  
           )}
         </ul>
         <div className="cart-payment">
           <div className="cart-payment-total">
             <p className="cart-payment-total-text">Total</p>
-            <div className="cart-payment-total-price">
-              <p className="cart-payment-total-origin">Kr 123.00</p>
-              <p className="cart-payment-total-tax">
-                (Incl.tax 10% = Kr 12.30)
-              </p>
-            </div>
+            {context.cart.length > 0 &&
+              <div className="cart-payment-total-price">
+                <p className="cart-payment-total-origin">
+                  {context.cart.reduce((total, curr) => {
+                    return total += curr.quantity* curr.price;
+                  }, 0)} .000 Đ</p>
+                {/* <p className="cart-payment-total-tax">
+                  (Incl.tax 10% = Kr 12.30)
+                </p> */}
+              </div>
+            }
           </div>
           <button className="cart-payment-button">PAYMENT</button>
         </div>
