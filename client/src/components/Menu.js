@@ -2,11 +2,15 @@ import { Container, Row, Col } from 'react-grid-system';
 import ShowCard from './ShowCard';
 import Fooods from './Foods'
 import ShopContext from './ShopContext'
+import Filter from './Header/Filter';
 
 const Foods = Fooods
 export default function Menu() {
     return (
+        <>
+        <Filter></Filter>
         <ShopContext>
+            
             {
                 context => (
                     <Container>
@@ -29,5 +33,6 @@ export default function Menu() {
                 )
             }
         </ShopContext>
+        </>
     );
   }

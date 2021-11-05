@@ -1,7 +1,8 @@
 const Foods = [
   {
-    type: 'Đặc sản vùng miền',
-    SKU: '01',
+    typeName: 'Đặc sản vùng miền',
+    typeId:0,
+SKU: '01',
     image: '/image/banhxeo.jpg',
     name: 'Bánh xèo miền tây',
     description:
@@ -13,8 +14,9 @@ const Foods = [
     STT: 3,
   },
   {
-    type: 'Đặc sản vùng miền',
-    SKU: '06',
+    typeName: 'Đặc sản vùng miền',
+    typeId:0,
+SKU: '06',
     image: '/image/Bundau.jpg',
     name: 'Bún đậu mắm tôm',
     description:
@@ -26,8 +28,9 @@ const Foods = [
     STT: 1,
   },
   {
-    type: 'Bình dân',
-    SKU: '07',
+    typeName: 'Bình dân',
+    typeId:1,
+SKU: '07',
     image: '/image/Banhmibokho.jpg',
     name: 'Bánh mì bò kho',
     description: '- 1 phần bò kho  - 2 bánh mì  - Rau thơm',
@@ -38,8 +41,9 @@ const Foods = [
     STT: 4,
   },
   {
-    type: 'Bình dân',
-    SKU: '08',
+    typeName: 'Bình dân',
+    typeId:1,
+SKU: '08',
     image: '/image/chaolong.jpg',
     name: 'Cháo lòng',
     description:
@@ -51,8 +55,9 @@ const Foods = [
     STT: 1,
   },
   {
-    type: 'Bình dân',
-    SKU: '09',
+    typeName: 'Bình dân',
+    typeId:1,
+SKU: '09',
     image: '/image/comtam.jpg',
     name: 'Cơm tấm',
     description:
@@ -64,8 +69,9 @@ const Foods = [
     STT: 2,
   },
   {
-    type: 'Bình dân',
-    SKU: '10',
+    typeName: 'Bình dân',
+    typeId:1,
+SKU: '10',
     image: '/image/mixao.jpg',
     name: 'Mì xào hải sản',
     description: '- 200g mì  - 100g tôm  -100g thịt - Gia vị',
@@ -76,8 +82,9 @@ const Foods = [
     STT: 3,
   },
   {
-    type: 'Bình dân',
-    SKU: '11',
+    typeName: 'Bình dân',
+    typeId:1,
+SKU: '11',
     image: '/image/Xoiga.jpg',
     name: 'Xôi gà',
     description: '- 1 phần xôi  - Gà nướng xe - 2 trứng cút chiên',
@@ -88,8 +95,9 @@ const Foods = [
     STT: 3,
   },
   {
-    type: 'Bình dân',
-    SKU: '12',
+    typeName: 'Bình dân',
+    typeId:1,
+SKU: '12',
     image: '/image/Hutieu.jpg',
     name: 'Hủ tiếu',
     description: '- Bún sợi  - Giò - Cá viên, bò viên  - Rau, nước dùng ',
@@ -100,8 +108,9 @@ const Foods = [
     STT: 3,
   },
   {
-    type: 'Lẩu',
-    SKU: '13',
+    typeName: 'Lẩu',
+    typeId:2,
+SKU: '13',
     image: '/image/Laucaduoi.jpg',
     name: 'Lẩu cá đuối',
     description:
@@ -113,8 +122,9 @@ const Foods = [
     STT: 5,
   },
   {
-    type: 'lẩu',
-    SKU: '14',
+    typeName: 'lẩu',
+    typeId:2,
+SKU: '14',
     image: '/image/Laubo.jpg',
     name: 'Lẩu bò thập cẩm',
     description:
@@ -126,8 +136,9 @@ const Foods = [
     STT: 5,
   },
   {
-    type: 'Lẩu',
-    SKU: '15',
+    typeName: 'Lẩu',
+    typeId:2,
+SKU: '15',
     image: '/image/Laucadieuhong.jpg',
     name: 'Lẩu cá diêu hồng',
     description:
@@ -139,8 +150,9 @@ const Foods = [
     STT: 5,
   },
   {
-    type: 'Lẩu',
-    SKU: '16',
+    typeName: 'Lẩu',
+    typeId:2,
+SKU: '16',
     image: '/image/Lauga.jpg',
     name: 'Lẩu gà lá giang',
     description:
@@ -152,8 +164,9 @@ const Foods = [
     STT: 5,
   },
   {
-    type: 'Lẩu',
-    SKU: '17',
+    typeName: 'Lẩu',
+    typeId:2,
+SKU: '17',
     image: '/image/Lauchay.jpg',
     name: 'Lẩu chay',
     description:
@@ -165,8 +178,9 @@ const Foods = [
     STT: 5,
   },
   {
-    type: 'Lẩu',
-    SKU: '18',
+    typeName: 'Lẩu',
+    typeId:2,
+SKU: '18',
     image: '/image/Lautuxuyen.jpg',
     name: 'Lẩu Tứ Xuyên',
     description:
@@ -178,8 +192,9 @@ const Foods = [
     STT: 5,
   },
   {
-    type: 'Món Tây',
-    SKU: '19',
+    typeName: 'Món Tây',
+    typeId:3,
+SKU: '19',
     image: '/image/hamburger.png',
     name: 'Hamburger Bò Cheese',
     description: '- 100g bò  - 2 lát Cheese  - Bánh mì, rau, gia vị',
@@ -190,8 +205,9 @@ const Foods = [
     STT: 1,
   },
   {
-    type: 'Món Tây',
-    SKU: '20',
+    typeName: 'Món Tây',
+    typeId:3,
+SKU: '20',
     image: '/image/MiY.jpg',
     name: 'Mì Ý',
     description: 'Mì ý sốt cà chua thịt băm phô mai',
@@ -202,8 +218,9 @@ const Foods = [
     STT: 1,
   },
   {
-    type: 'Món Tây',
-    SKU: '21',
+    typeName: 'Món Tây',
+    typeId:3,
+SKU: '21',
     image: '/image/beafsteak.jpg',
     name: 'Beafsteak',
     description: '- 200g bò  -Bắp nướng  -Gia vị',
@@ -214,8 +231,9 @@ const Foods = [
     STT: 1,
   },
   {
-    type: 'Món Tây',
-    SKU: '22',
+    typeName: 'Món Tây',
+    typeId:3,
+SKU: '22',
     image: '/image/Khoaitaynghien.jpg',
     name: 'Khoai tây Nghiền',
     description: '- Khoai tây  - Sữa  - Bơ  - Gia vị',
@@ -226,8 +244,9 @@ const Foods = [
     STT: 1,
   },
   {
-    type: 'Món Tây',
-    SKU: '23',
+    typeName: 'Món Tây',
+    typeId:3,
+SKU: '23',
     image: '/image/pizza.jpg',
     name: 'Potato Pizza',
     description: '- Thịt Ham  - Thịt Bacom  - Hành, Bắp, Khoai tây, phô mai',
@@ -238,8 +257,9 @@ const Foods = [
     STT: 1,
   },
   {
-    type: 'Món Tây',
-    SKU: '24',
+    typeName: 'Món Tây',
+    typeId:3,
+SKU: '24',
     image: '/image/Cahoi.png',
     name: 'Cá hồi áp chảo Sốt cam',
     description: '- 200g Cá hồi  - Măng tây  - Cam tươi, Gia vị',
@@ -250,8 +270,9 @@ const Foods = [
     STT: 1,
   },
   {
-    type: 'Nước',
-    SKU: '25',
+    typeName: 'Nước',
+    typeId:4,
+SKU: '25',
     image: '/image/nuocsuoi.jpg',
     name: 'Nước suối',
     description: 'Nước suối Aquafina 500ml',
@@ -262,8 +283,9 @@ const Foods = [
     STT: 6,
   },
   {
-    type: 'Nước',
-    SKU: '26',
+    typeName: 'Nước',
+    typeId:4,
+SKU: '26',
     image: '/image/coca.jpg',
     name: 'Coca',
     description: 'Coca vị nguyên bản 500ml',
@@ -274,8 +296,9 @@ const Foods = [
     STT: 2,
   },
   {
-    type: 'Nước',
-    SKU: '27',
+    typeName: 'Nước',
+    typeId:4,
+SKU: '27',
     image: '/image/nuoccam.jpg',
     name: 'Cam vắt',
     description: '400ml cam vắt',
@@ -286,8 +309,9 @@ const Foods = [
     STT: 1,
   },
   {
-    type: 'Nước',
-    SKU: '28',
+    typeName: 'Nước',
+    typeId:4,
+SKU: '28',
     image: '/image/tratac.png',
     name: 'Trà tắc',
     description: '- 300ml Trà tắc',
@@ -298,8 +322,9 @@ const Foods = [
     STT: 3,
   },
   {
-    type: 'Nước',
-    SKU: '29',
+    typeName: 'Nước',
+    typeId:4,
+SKU: '29',
     image: '/image/sodachanh.jpg',
     name: 'Soda Chanh',
     description: '- 300ml Soda chanh',
@@ -310,8 +335,9 @@ const Foods = [
     STT: 4,
   },
   {
-    type: 'Nước',
-    SKU: '30',
+    typeName: 'Nước',
+    typeId:4,
+SKU: '30',
     image: '/image/ruousoju.jpeg',
     name: 'Rượu Soju',
     description: 'Chai 330ml Soju các loại',
