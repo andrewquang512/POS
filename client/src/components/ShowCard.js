@@ -29,10 +29,12 @@ function Display(props) {
     <label style={{ marginLeft: '1rem'}} >{props.message}</label>
   )
 }
+
 const contentStyle = {
   height: "60%",
   width: "60%",
 };
+
 export default function ShowCard(props) {
   const [counter, setCounter] = useState(1);
   const incrementCounter = () => setCounter(counter + 1);
@@ -96,7 +98,8 @@ export default function ShowCard(props) {
                       <div onClick={close}>
                         <div 
                           className="totalPrice"
-                          onClick={props.context.addProductToCart.bind(this, props.food)}
+                          // onClick={props.context.addProductToCart.bind(this, props.food)}
+                          onClick={props.context.addProductToCart.bind(this, {...props.food, want: counter})}
                         >
                           <label style={{ textAlign: 'center', cursor: 'pointer'}}> 
                             <BsCart2 className="iconTotalPrice"/>{counter* props.price} .000 Đ

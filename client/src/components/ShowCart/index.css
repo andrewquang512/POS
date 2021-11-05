@@ -129,7 +129,7 @@ margin:0 4px;
 .INCART {
     position: absolute;
     top: 0;
-    left: 0;
+    left: 8px;
     right: 0;
     bottom: 0;
     font-size: 23px;

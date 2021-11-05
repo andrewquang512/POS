@@ -9,12 +9,12 @@ const addProductToCart = (product, state) => {
   );
 
   if (updatedItemIndex < 0) {
-    updatedCart.push({ ...product, quantity: 1 });
+    updatedCart.push({ ...product, quantity: product.want });
   } else {
     const updatedItem = {
       ...updatedCart[updatedItemIndex]
     };
-    updatedItem.quantity++;
+    updatedItem.quantity += product.want;
     updatedCart[updatedItemIndex] = updatedItem;
   }
 

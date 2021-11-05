@@ -39,10 +39,10 @@ const ShowCart = () => {
         <div className="cart-header">
           <p className="cart-header-title">
             <i className="fas fa-shopping-cart"></i>
-            Your Cart {
+            Your Cart ({
               context.cart.reduce((count, curItem) => {
                 return count + curItem.quantity;
-            }, 0)}
+            }, 0)})
           </p>
           <button className="cart-header-button">DINE IN</button>
         </div>
