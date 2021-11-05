@@ -61,8 +61,21 @@ code {
 .modal {
   width: 100%;
   border-radius: 20px;
-  backdrop-filter: blur(8px);
+  /* backdrop-filter: blur(4px); */
 }
+.modal:before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(105,105,105,0.5);
+  /* backdrop-filter: blur(4px); */
+  transition: .25s;
+  z-index: -1;
+}
+
 .modal > .header {
   font-size: 18px;
   padding: 10px;
@@ -124,14 +137,17 @@ code {
   color: white;
   font-weight: 100;
   transition: all 0.3s;
-}
-.totalPrice:hover, .totalPrice:active {
-  transform: scale(1.03);
+  cursor: pointer;
 }
 .iconTotalPrice {
   vertical-align: middle;
   width: 1.5rem;
   height: 1.5rem;
   margin-right: 20px;
+  cursor: pointer;
+}
+.totalPrice:hover, .totalPrice:active {
+  transform: scale(1.03);
+  cursor: pointer;
 }
 /* ************************************Pop - Up******************************************** */
