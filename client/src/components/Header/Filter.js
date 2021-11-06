@@ -1,17 +1,18 @@
-import React, { useState, useRef,useEffect} from "react";
+import React, { useState, useRef,useEffect } from "react";
 import FoodFilter from "./FoodFilter";
-import { Types } from "./Types";
 import Slider from "react-slick";
+import { Types } from "./Types";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 console.log(Types);
-const Filter = ({x}) => {
+const Filter = () => {
   const [selected, setSelected] = useState(-1);
   const ref = useRef({});
 
   const next = () => {
     ref.current.slickNext();
   };
+
   const previous = () => {
     ref.current.slickPrev();
   };
@@ -47,8 +48,9 @@ const Filter = ({x}) => {
   const handleOneSelected = (id) => {
     setSelected(id)
   };
-  useEffect(() => {
 
+  useEffect(() => {
+    
     return () => {
       console.log("pre",selected);
     }
@@ -63,12 +65,13 @@ const Filter = ({x}) => {
         <h3 className="backtohome-title">Back to Home</h3>
       </div>
 
+      {/* <div className="filter-food"> */}
       <div className="button-filter button-back">
         <div onClick={previous} class="arrow-left-food arrow-food"></div>
       </div>
 
-
-        <Slider ref={ref} {...settings}>
+      {/* <ul className="filter-list"> */}
+      <Slider ref={ref} {...settings}>
         <FoodFilter handleOneSelected={handleOneSelected} selected={selected} key={-1} name="All" id={-1} />
         {types.map((typeFood, index) => {
           return (
@@ -84,10 +87,9 @@ const Filter = ({x}) => {
         })}
       </Slider>
 
-        
-        <div className="button-filter button-next">
-          <div onClick={next}  class="arrow-right-food arrow-food"></div>
-        </div>
+      <div className="button-filter button-next">
+        <div onClick={next} class="arrow-right-food arrow-food"></div>
+      </div>
     </>
   );
 };
