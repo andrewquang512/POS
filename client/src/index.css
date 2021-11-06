@@ -160,14 +160,12 @@ code {
   width: 100%;
   padding-left: 50px;
   display: inline-block;
-  color: #000D6B;
-  text-align: left;
 
+  color: #000D6B;
 }
 
 .backtohome-icon{
   font-size: 44px;
-  color: red;
 }
 .backtohome-title{
   display: inline-block;
@@ -175,7 +173,6 @@ code {
   margin-left: 14px;
   /* font-weight: 700; */
   font-weight: bold;
-  color: red;
 }
 .filter-food{
 display: flex;
@@ -201,8 +198,7 @@ justify-content: center;
   border-right:20px solid blue;
   /* vertical-align: middle; */
   /* height: 100%; */
-  /* margin-right: -15px; */
-  left:53px;
+  left: -53px;
 }
 .arrow-food{
   width: 0;
@@ -220,7 +216,6 @@ justify-content: center;
   opacity: 0.8;
 }
 .arrow-right-food {
-
   right:53px;
   border-left: 20px solid blue;
  
@@ -235,8 +230,8 @@ justify-content: center;
   z-index: 1;
 } */
 .hoangkui-css-filter{
-/* box-sizing: border-box; */
-text-align: center;
+  /* box-sizing: border-box; */
+  text-align: center;
 }
 
 .stick-list-cc{
@@ -247,6 +242,8 @@ text-align: center;
   padding: 0;
   text-align: center !important;
 }
+
+
 .filter-item{
   text-align: center;
   width: 200px;
@@ -268,9 +265,7 @@ text-align: center;
 .test{
   animation:spinner both 3s;
 }
-.filter-item:hover{
-/* background-color: #96C7C1; */
-}
+
 .filter-item-seleted{
   color: white;
   background-color: #000D6B;
@@ -287,7 +282,6 @@ text-align: center;
   border: none;
   margin-top: 16px;
   margin: 16px auto 0;
-  
 }
 .filter-item-title{
   word-wrap: break-word;
@@ -312,47 +306,4 @@ text-align: center;
     transform: translateX(-80px);
   }
   
-}
-
-body {
-  text-align: center;
-  background: #fcfcfa;
-  color: #818078;
-  font-family: Futura, sans-serif;
-}
-
-.container {
-  max-width: 50%;  
-  margin: 40px auto;
-}
-
-.hr-text {
-  line-height: 1em;
-  position: relative;
-  outline: 0;
-  border: 0;
-  color: black;
-  text-align: center;
-  height: 1.5em;
-  font-size: 30px;
-}
-.hr-text:before {
-    content: '';
-    background: linear-gradient(to right, transparent, #818078, transparent);
-    position: absolute;
-    left: 0;
-    top: 50%;
-    width: 100%;
-    height: 1px;
-  }
-.hr-text:after {
-    content: attr(data-content);
-    position: relative;
-    display: inline-block;
-    color: black;
-
-    padding: 0 .5em;
-    line-height: 1.5em;
-    color: #818078;
-    background-color: #fcfcfa;
 }

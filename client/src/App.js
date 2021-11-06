@@ -4,23 +4,21 @@ import Menu from './components/Menu';
 import './index.css';
 import ShowCart from "./components/ShowCart"
 import GlobalState from './components/GlobalState';
-import { useState } from 'react';
 import Filter from './components/Header/Filter';
-import TypeProducts from './components/TypeProducts';
-import ShowInforLine from './components/ShowInforLine';
+import {useState} from "react"
+import React from 'react';
 function App() {
   const [idType,setIdType]=useState(-1)
   function ChangeForIdType(id){
     setIdType(id);
   }
   return (
-      <GlobalState>
-        <ShowCart/>
-        <Filter x={ChangeForIdType}></Filter>
-        <ShowInforLine typeId={idType}/>
-        <Menu typeId = {idType}/>
 
-      </GlobalState>
+    <GlobalState>
+      <ShowCart/>
+      <Filter x={ChangeForIdType}></Filter>
+      <Menu typeId = {idType} Showall = {false}/>
+    </GlobalState>
   );
 }
 
