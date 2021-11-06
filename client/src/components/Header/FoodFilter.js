@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useRef, useState} from 'react'
 import Foods from '../Foods'
 import Menu from '../Menu';
 const TypeProducts={
@@ -10,30 +10,25 @@ const TypeProducts={
 };
 
 
-function ShowType(){
-  <Menu
-  typeId = {0}
-  Showall = {false}
-  />
-}
-
-function FoodFilter({name, id, x_value}){
-  function getMenu(){
-    x_value(id);
-    
+const FoodFilter = ({name,id,selected,handleOneSelected}) => {
+  var className="filter-item"
+  if (selected===id) className="filter-item filter-item-seleted"
+  const filterRef=useRef()
+  const handleClickFilter=(id)=>{
+    handleOneSelected(id)
   }
-  return (
-        <>
-          <li className="filter-item" onClick={getMenu}>
-            <img
-              src={TypeProducts[id]}
-              alt=""
-              className="filter-item-img"
-            />
-            <h3 className="filter-item-title">{name}</h3>
-          </li>
-        </>
+    return (
+      <>  
+          <li ref={filterRef} onClick={()=>handleClickFilter(id)} className={className}>
+          <img
+            src={TypeProducts[id]}
+            alt=""
+            className="filter-item-img"
+          />
+          <h3 className="filter-item-title">{name}</h3>
+        </li>
+      </>
     )
-}
+  }
 
 export default FoodFilter
