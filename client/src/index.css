@@ -198,7 +198,8 @@ justify-content: center;
   border-right:20px solid blue;
   /* vertical-align: middle; */
   /* height: 100%; */
-  margin-right: -15px;
+  /* margin-right: -15px; */
+  left:53px;
 }
 .arrow-food{
   width: 0;
@@ -206,6 +207,9 @@ justify-content: center;
   border-top: 30px solid transparent;
   border-bottom: 30px solid transparent;
   z-index: 1;
+  cursor: pointer;
+  position: absolute;
+  top: 178px;
   
   cursor: pointer;
 }
@@ -214,7 +218,7 @@ justify-content: center;
 }
 .arrow-right-food {
 
-
+  right:53px;
   border-left: 20px solid blue;
  
 
@@ -227,10 +231,18 @@ justify-content: center;
   background-color: red;
   z-index: 1;
 } */
-.filter-list{
+.hoangkui-css-filter{
 /* box-sizing: border-box; */
-display: inline-block;
+text-align: center;
+}
 
+.stick-list-cc{
+  position: relative;
+  display: block;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  text-align: center !important;
 }
 .filter-item{
   text-align: center;
@@ -244,7 +256,7 @@ display: inline-block;
   display: inline-block;
   color:#000D6B;
   cursor: pointer;
-  transition: all 1s ease ;
+  transition: all 0.2s ease ;
   margin:10px;
   list-style: none;
 
@@ -254,11 +266,14 @@ display: inline-block;
   animation:spinner both 3s;
 }
 .filter-item:hover{
-background-color: #96C7C1;
+/* background-color: #96C7C1; */
 }
 .filter-item-seleted{
   color: white;
   background-color: #000D6B;
+}
+.filter-item-seleted:hover{
+  background-color: none;
 }
 .filter-item-img{
   width: 70px;
@@ -268,6 +283,8 @@ background-color: #96C7C1;
   outline: none;
   border: none;
   margin-top: 16px;
+  margin: 16px auto 0;
+  
 }
 .filter-item-title{
   word-wrap: break-word;
