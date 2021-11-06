@@ -5,17 +5,16 @@ import ShopContext from './ShopContext'
 import Filter from './Header/Filter';
 
 const Foods = Fooods
-export default function Menu() {
+var Showall = true
+export default function Menu(props) {
     return (
         <>
-        <Filter></Filter>
         <ShopContext>
-            
             {
                 context => (
                     <Container>
                         <Row>
-                            {Foods.map(Food =>(
+                            {Foods.filter(Food => Food.typeId == props.typeId || Showall == props.Showall).map(Food =>(
                                 <Col sm={3}>
                                     <ShowCard
                                         name={Food.name}
