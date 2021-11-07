@@ -4,6 +4,7 @@ export const REMOVE_PRODUCT = "REMOVE_PRODUCT";
 const addProductToCart = (product, state) => {
   console.log("adding product", product);
   const updatedCart = [...state.cart];
+  console.log(updatedCart);
   const updatedItemIndex = updatedCart.findIndex(
     item => item.SKU === product.SKU
   );

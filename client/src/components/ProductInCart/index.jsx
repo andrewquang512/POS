@@ -1,6 +1,6 @@
 import React from 'react'
 import "./index.css"
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
 import { VscChromeClose } from 'react-icons/vsc';
 
 const ProductInCart = (props) => {
@@ -10,6 +10,12 @@ const ProductInCart = (props) => {
     if(number <= 1) {
         decrementCounter = () => setNumber(1);
     }
+    useEffect(() => {
+        setNumber(props.item.quantity)
+        return () => {
+            // cleanup
+        }
+    }, [props.item.quantity])
     return (
         <>
             <li key={props.item.SKU} className="cart-item">
