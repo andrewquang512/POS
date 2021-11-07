@@ -35,11 +35,11 @@ const ProductInCart = (props) => {
                     <div className="cart-item-content-bottom">
                         <div className="cart-item-content-bottom-button">
                             <i onClick={props.context.removeProductFromCart.bind(this, props.item.SKU)}>
-                                <i class="fas fa-minus" onClick={decrementCounter}></i>
+                                <i className="fas fa-minus" onClick={decrementCounter}></i>
                             </i>
                                 {number}
                             <i onClick={props.context.addProductToCart.bind(this, {...props.item, want: 1})}>
-                                <i class="fas fa-plus" onClick={incrementCounter}></i>
+                                <i className="fas fa-plus" onClick={incrementCounter}></i>
                             </i>     
                         </div>
                         <div className="cart-item-content-bottom-price">

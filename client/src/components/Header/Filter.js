@@ -4,7 +4,7 @@ import Slider from "react-slick";
 import { Types } from "./Types";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { BorderLeft } from "@material-ui/icons";
+// import { BorderLeft } from "@material-ui/icons";
 console.log(Types);
 const Filter = ({x}) => {
   const [selected, setSelected] = useState(-1);
@@ -68,7 +68,7 @@ const Filter = ({x}) => {
 
       {/* <div className="filter-food"> */}
       <div className="button-filter button-back">
-        <div onClick={previous} class="arrow-left-food arrow-food"></div>
+        <div onClick={previous} className="arrow-left-food arrow-food"></div>
       </div>
 
       {/* <ul className="filter-list"> */}
@@ -90,7 +90,7 @@ const Filter = ({x}) => {
       </Slider>
 
       <div className="button-filter button-next">
-        <div onClick={next} class="arrow-right-food arrow-food"></div>
+        <div onClick={next} className="arrow-right-food arrow-food"></div>
       </div>
     </>
   );
