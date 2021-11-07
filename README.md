@@ -37,3 +37,10 @@ The software architecture describes the different components of the application,
 
 ![alt text](https://github.com/andrewquang512/POS/blob/master/report/Architectural%20Design/images/architecture-approach-1.png)
 ![alt text](https://github.com/andrewquang512/POS/blob/master/report/Architectural%20Design/images/architecture-approach-2.png)
+
+# Preview UI
+
+![alt text](https://github.com/andrewquang512/POS/blob/master/report/UI/menu-screen.PNG)
+
+
+![alt text](https://github.com/andrewquang512/POS/blob/master/report/UI/cart.png)
