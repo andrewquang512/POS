@@ -1,10 +1,10 @@
 export const ADD_PRODUCT = "ADD_PRODUCT";
 export const REMOVE_PRODUCT = "REMOVE_PRODUCT";
+export const REMOVE_ALL="REMOVE_ALL"
 
 const addProductToCart = (product, state) => {
   console.log("adding product", product);
   const updatedCart = [...state.cart];
-  console.log(updatedCart);
   const updatedItemIndex = updatedCart.findIndex(
     item => item.SKU === product.SKU
   );
@@ -39,7 +39,16 @@ const removeProductFromCart = (productId, state) => {
 
   return { ...state, cart: updatedCart };
 };
+const removeAll=(product,state)=>{
+  const updatedCart = [...state.cart];
+  const updatedItemIndex = updatedCart.findIndex(item => item.SKU === product.SKU);
+  updatedCart.splice(updatedItemIndex, 1);
 
+  // console.log(state.cart);
+  // console.log(product);
+
+  return { ...state, cart: updatedCart };
+}
 export const shopReducer = (state, action) => {
   switch (action.type) {
     case ADD_PRODUCT:
@@ -47,7 +56,8 @@ export const shopReducer = (state, action) => {
 
     case REMOVE_PRODUCT:
       return removeProductFromCart(action.productId, state);
-
+    case REMOVE_ALL:
+      return removeAll(action.product,state);
     default:
       return state;
   }

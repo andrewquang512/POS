@@ -3,5 +3,6 @@ import React from "react";
 export default React.createContext({
     cart: [],
     addProductToCart: product => {},
+    removeAll: product => {},
     removeProductFromCart: productId => {}
 });

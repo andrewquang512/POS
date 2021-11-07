@@ -45,7 +45,7 @@ SKU: '03',
   {
     typeName: 'Đặc sản vùng miền',
     typeId:0,
-SKU: '03',
+SKU: '04',
     image: '/image/miquang.jpg',
     name: 'Mì quảng',
     description:

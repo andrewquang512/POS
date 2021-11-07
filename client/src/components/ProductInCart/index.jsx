@@ -10,6 +10,12 @@ const ProductInCart = (props) => {
     if(number <= 1) {
         decrementCounter = () => setNumber(1);
     }
+    const removeAll=()=>{
+        console.log(props.item.SKU);
+
+        // return props.context.removeProductFromCart.bind(this, props.item.SKU)
+        
+    }
     useEffect(() => {
         setNumber(props.item.quantity)
         return () => {
@@ -50,11 +56,21 @@ const ProductInCart = (props) => {
                             </i>     
                         </div>
                         <div className="cart-item-content-bottom-price">
-                            <p className="cart-item-content-bottom-price-origin"><VscChromeClose  className="iconX" size={25}/> {props.item.price} .000 Đ</p>
+                            <p className="cart-item-content-bottom-price-origin">
+                                {/* <VscChromeClose  className="iconX" size={25}/>  */}
+                                
+                                {props.item.price} .000 Đ</p>
                             {/* <p className="cart-item-content-bottom-price-tax">(Incl.tax 10% = Kr 12.30)</p> */}
+
+                        
                         </div>
                     </div>
+
                 </div>
+
+                <i 
+                onClick={props.context.removeAll.bind(this, {...props.item})}
+                className="fas fa-times cart-item-icon-close"></i>
             </li>   
         </>
     )

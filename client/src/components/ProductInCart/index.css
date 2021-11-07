@@ -8,6 +8,7 @@
     border-radius: 4px;
     box-sizing: border-box;
     margin-bottom: 12px;
+    position: relative;
 }
 .cart-item-img-src{
     /* height: 100px; */
@@ -20,6 +21,7 @@
     margin-left: 14px;
     width: 100%;
     padding-right:6px;
+    padding:6px;
     /* background-color: red; */
 }
 .cart-item-content-add-list{
@@ -61,6 +63,7 @@
 .cart-item-content-bottom-button {
     vertical-align: middle;
     text-align: center;
+    /* padding-bottom: 10px; */
 }
 .cart-item-content-bottom-button .fas:hover{
     opacity: 0.8;
@@ -93,3 +96,15 @@
 .iconX {
     margin-right: 30px;
 }
+.cart-item-icon-close{
+    position: absolute;
+    top:6px;
+    right: 6px;
+    
+    cursor: pointer;
+}
+.cart-item-icon-close:hover{
+    color:red;
+    /* zoom: 1.1; */
+}
+
