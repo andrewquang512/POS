@@ -30,7 +30,8 @@
     justify-content: space-between;
     margin: 0;
     font-size: 12px;
-    line-height: 0px;
+    /* line-height: 0px; */
+    text-align: left;
     
     /* line-height: 10px; */
 }
@@ -77,8 +78,10 @@
     font-size: 10px;
 }
 .cart-item-content-title{
-margin:0;
-/* background-color: red; */
+    margin: 0;
+    text-align: left;
+    /* background-color: red; */
+    font-size: 18px;
 
 }
 .removeItem {

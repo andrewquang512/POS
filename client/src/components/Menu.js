@@ -4,18 +4,18 @@ import Fooods from './Foods'
 import ShopContext from './ShopContext'
 import Filter from './Header/Filter';
 
+import React from 'react';
 const Foods = Fooods
-export default function Menu() {
+export default function Menu(props) {
     return (
         <>
-        <Filter></Filter>
         <ShopContext>
-            
             {
                 context => (
                     <Container>
                         <Row>
-                            {Foods.map(Food =>(
+
+                            {Foods.filter(Food => Food.typeId == props.typeId || props.typeId == -1).map(Food =>(
                                 <Col sm={3}>
                                     <ShowCard
                                         name={Food.name}

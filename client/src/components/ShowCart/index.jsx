@@ -34,7 +34,8 @@ const ShowCart = () => {
           <div className="cart-close"
           onClick={handleClickClose}
           >
-          <i class="fas fa-times-circle"></i>
+
+          <i className="fas fa-times-circle"></i>
           </div>
         <div className="cart-header">
           <p className="cart-header-title">

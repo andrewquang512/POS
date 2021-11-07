@@ -6,7 +6,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-family: 'Zen Antique', serif;
-  /* box-sizing: border-box; */
+  box-sizing: border-box;
 }
 *{
   box-sizing: inherit;
@@ -24,6 +24,7 @@ code {
   margin-top: 40px;
   transition: all 0.6s;
   box-shadow: 0.13rem 0.13rem 0.13rem 0.13rem #777777;
+  cursor: pointer;
 }
 .imagefood {
   width: 80%;
@@ -54,10 +55,16 @@ code {
   display: inline;
   color: #FF3333;
   /* background-color: red; */
-  margin-left: 1.5rem;
+  /* margin-left: 1.5rem; */
+  /* text-align: left; */
+  margin-left: -60px;
+  /* margin-top: 9px; */
+  /* padding-top: 19px; */
 }
 .card-title {
-  margin-left: 1.5rem;
+  /* margin-left: 1.5rem; */
+  margin-top: 4px;
+  text-align: center;
 }
 /* ************************************Pop - Up******************************************** */
 
@@ -82,9 +89,10 @@ code {
 .modal > .header {
   font-size: 18px;
   padding: 10px;
-  background-color: #DDDDDD;
+  background-color: #ff0000;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
+  color:#fff;
 }
 .modal > .content {
   background-color: #EEEEEE;
@@ -102,8 +110,9 @@ code {
   margin-top: 10px;
   margin-right: 15px;
   top: 0px;
-  font-size: 24px;
+  font-size: 40px;
   border: none;
+  color:#fff;
 }
 
 .image_Pop {
@@ -162,10 +171,14 @@ code {
   display: inline-block;
 
   color: #000D6B;
+  text-align: left;
+
 }
 
 .backtohome-icon{
   font-size: 44px;
+
+  color: red;
 }
 .backtohome-title{
   display: inline-block;
@@ -173,6 +186,7 @@ code {
   margin-left: 14px;
   /* font-weight: 700; */
   font-weight: bold;
+  color: red;
 }
 .filter-food{
 display: flex;
@@ -309,4 +323,48 @@ text-align: center;
     transform: translateX(-80px);
   }
   
+
+}
+
+body {
+  text-align: center;
+  background: #fcfcfa;
+  color: #818078;
+  font-family: Futura, sans-serif;
+}
+
+.container {
+  max-width: 50%;  
+  margin: 40px auto;
+}
+
+.hr-text {
+  line-height: 1em;
+  position: relative;
+  outline: 0;
+  border: 0;
+  color: black;
+  text-align: center;
+  height: 1.5em;
+  font-size: 30px;
+}
+.hr-text:before {
+    content: '';
+    background: linear-gradient(to right, transparent, #818078, transparent);
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 100%;
+    height: 1px;
+  }
+.hr-text:after {
+    content: attr(data-content);
+    position: relative;
+    display: inline-block;
+    color: black;
+
+    padding: 0 .5em;
+    line-height: 1.5em;
+    color: #818078;
+    background-color: #fcfcfa;
 }
