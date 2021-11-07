@@ -6,7 +6,7 @@ Point of sale (POS) or point of purchase is the time and place where a retail tr
 
 ![alt text](https://github.com/andrewquang512/POS/blob/master/report/workflow.png)
 
-# Requirement elicitation
+# [Requirement elicitation](https://github.com/andrewquang512/POS/blob/master/report/Requirement/Requirment.pdf)
 Go [here](https://github.com/andrewquang512/POS/blob/master/report/Requirement/Requirment.pdf) for more details
 
 **The context of this project:** A Restaurant POS system is a software that allows operators to start their own restaurant business.Due to the influence of the COVID pandemic, it is urgent to limit face-to-face communication, so this isthe main reason why restaurant POS software was born: to not only be an intermediary between customersand employees but also help conveniently observe, check, and manage the restaurant’s activities.
@@ -23,5 +23,17 @@ Go [here](https://github.com/andrewquang512/POS/blob/master/report/Requirement/R
 
 ![alt text](https://github.com/andrewquang512/POS/blob/master/report/Requirement/images/usecase_system.png)
 
-# System modelling
-# Architecture design
+
+# [System modeling](https://github.com/andrewquang512/POS/blob/master/report/System%20Modeling/System%20Modelling.pdf)
+Go [here](https://github.com/andrewquang512/POS/blob/master/report/System%20Modeling/System%20Modelling.pdf) for more details
+
+**Class diagram:**
+![alt text](https://github.com/andrewquang512/POS/blob/master/report/System%20Modeling/images/class-diagram.png)
+
+# [Architecture design](https://github.com/andrewquang512/POS/blob/master/report/Architectural%20Design/Architectural%20Design.pdf)
+Go [here](https://github.com/andrewquang512/POS/blob/master/report/Architectural%20Design/Architectural%20Design.pdf) for more details
+
+The software architecture describes the different components of the application, and the relationbetween them. In this restaurant POS 2.0, we follow Model – View – Controller (MVC) architecture.To implement this, we apply the MongoDB - Expressjs - React - Nodejs (MERN) technology stack.The view is generated in the browser using ReactJS, which communicates with the backend, whichhave routes to direct to different controllers. These controllers will access to schema, which in turn,calls the right mutation or query. The model takes care of accessing and retrieving the data fromMongoDB. The following two images are the structure of MERN stack and the MVC architecture.
+
+![alt text](https://github.com/andrewquang512/POS/blob/master/report/Architectural%20Design/images/architecture-approach-1.png)
+![alt text](https://github.com/andrewquang512/POS/blob/master/report/Architectural%20Design/images/architecture-approach-2.png)
