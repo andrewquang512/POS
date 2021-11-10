@@ -1,0 +1,63 @@
+
+POST http://localhost:5000/api/product
+Content-Type: application/json
+
+{
+    "name":"3",
+    "catelory":"618bbf3034f3156f026ab808",
+    "price":"25",
+    "count":"30",
+    "description":"xxxx",
+    "img":"testimg"
+}
+###
+GET http://localhost:5000/api/product/618bbf3034f3156f026ab808
+
+###
+PUT http://localhost:5000/api/product/618bb263303b3cd3e13242ef
+Content-Type: application/json
+
+{
+    "name":"mi tom",
+    "catelory":"618bb2d6303b3cd3e13242f2",
+    "price":"250000",
+    "count":"30",
+    "description":"mi tom tre em",
+    "img":"asdasdad"
+}
+###
+DELETE http://localhost:5000/api/product/618bbe4784033db6a2de25bd
+
+
+
+
+###
+POST http://localhost:5000/api/typeproduct
+Content-Type: application/json
+
+{
+    "name":"Lau bo",
+    "img":"123"
+}
+
+
+
+###
+GET http://localhost:5000/api/typeproduct
+
+
+
+
+###
+PUT http://localhost:5000/api/typeproduct/618ba46f2ac9c4ae0f970a06
+Content-Type: application/json
+
+{
+    "name":"lua lau hasssx",
+    "img":"hasagi"
+}
+
+
+
+###
+DELETE http://localhost:5000/api/typeproduct/618ba46f2ac9c4ae0f970a06

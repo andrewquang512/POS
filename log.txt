@@ -1,0 +1,160 @@
+commit afc651ac50ee7c576d99f0beac3321512d643c4f
+Author: thuongle2210 <67187155+thuongle2210@users.noreply.github.com>
+Date:   Sat Nov 6 11:10:44 2021 +0700
+
+    Add files via upload
+    
+    create logic for filter
+
+commit 161df70307135231d629cc55281f392cdc995968
+Author: thuongle2210 <67187155+thuongle2210@users.noreply.github.com>
+Date:   Sat Nov 6 11:10:01 2021 +0700
+
+    Add files via upload
+    
+    create logic for filter
+
+commit 81266a4995ef475ad61c76f36c337ab5994abdd4
+Author: thuongle2210 <67187155+thuongle2210@users.noreply.github.com>
+Date:   Sat Nov 6 11:08:53 2021 +0700
+
+    Add files via upload
+    
+    Change position in App.js
+
+commit cdfbdf809fd742bafab79b82865def89059d9352
+Author: thuongle2210 <67187155+thuongle2210@users.noreply.github.com>
+Date:   Sat Nov 6 11:05:42 2021 +0700
+
+    Add files via upload
+
+commit 4486c4b99ec5b6f97abd0c224d4862d3a765d4ee
+Author: hoangkui <hoangkui2001@gmail.com>
+Date:   Sat Nov 6 09:41:45 2021 +0700
+
+    animation slider
+
+commit 4974f34f15d20601805175ad70be42e8b6441add
+Author: hoangkui <hoangkui2001@gmail.com>
+Date:   Fri Nov 5 23:51:30 2021 +0700
+
+    hoangkui lam giao dien filter food
+
+commit eb66952f41743386bedfa066aad0a1bf24db62b9
+Merge: 2a4d9f5 59e0d98
+Author: andrewquang512 <andrew.viquang@gmail.com>
+Date:   Fri Nov 5 20:52:26 2021 +0700
+
+    Merge pull request #4 from andrewquang512/AddItemtoCart
+    
+    Add itemto cart
+
+commit 59e0d98dc73a9f41e206659492571279ffec8f05
+Merge: 67c82f2 2a4d9f5
+Author: andrewquang <andrew.viquang@gmail.com>
+Date:   Fri Nov 5 20:50:24 2021 +0700
+
+    Merge branch 'master' into AddItemtoCart
+
+commit 67c82f2f443e7182751238ba216952329aba69f5
+Author: Logggg.ng <thanhlong090101@gmail.com>
+Date:   Fri Nov 5 14:37:58 2021 +0700
+
+    Fixxx
+
+commit fa5a00f5d67b936dd2d37d50e829f00b328069b4
+Author: Logggg.ng <thanhlong090101@gmail.com>
+Date:   Fri Nov 5 08:11:17 2021 +0700
+
+    Fix
+
+commit d174cf6229f562a829787db5d805f6fc50d154f1
+Author: Logggg.ng <thanhlong090101@gmail.com>
+Date:   Tue Nov 2 21:23:30 2021 +0700
+
+    Add item to cart
+
+commit 2a4d9f55cd158469315dd3041da44b558242ce44
+Author: Hoang Lam <hoanglam55766@gmail.com>
+Date:   Tue Nov 2 14:26:14 2021 +0700
+
+    Update fake data
+
+commit 7df0749ae2da6ec157f21bfb051ac70b702ad724
+Author: Hoang Lam <hoanglam55766@gmail.com>
+Date:   Mon Nov 1 21:47:05 2021 +0700
+
+    add fake data
+
+commit 240b67c78cd0ba8d9105a9261c24ea1b1ebc46c8
+Merge: b66b4a6 6d57257
+Author: andrewquang512 <andrew.viquang@gmail.com>
+Date:   Mon Nov 1 20:52:54 2021 +0700
+
+    Merge pull request #2 from andrewquang512/server
+    
+    Server
+
+commit 6d572576ae2b05a3d61054bbf0cf4f991e659a1c
+Author: andrewquang <andrew.viquang@gmail.com>
+Date:   Mon Nov 1 20:51:13 2021 +0700
+
+    init connection
+
+commit 6798f2d2749ae0ea31354a0d3d3367fc0e1a2db4
+Author: andrewquang <andrew.viquang@gmail.com>
+Date:   Mon Nov 1 20:50:50 2021 +0700
+
+    init connection to database
+
+commit b66b4a6d658d84afbff043c12c1b62093d7d88dc
+Merge: 6311dec 79aa520
+Author: andrewquang512 <andrew.viquang@gmail.com>
+Date:   Mon Nov 1 20:30:14 2021 +0700
+
+    Merge pull request #1 from andrewquang512/ShowMenu
+    
+    update Show menu, Shopping cart
+
+commit 79aa520044d1d0b01a5d0ae41df5a59f2ebb569e
+Author: hoangkui <hoangkui2001@gmail.com>
+Date:   Mon Nov 1 20:04:53 2021 +0700
+
+    hoangkui
+
+commit 198fd022ed8ed4de826686d59451af90cda81ac9
+Merge: 2c34676 956f21f
+Author: Logggg.ng <thanhlong090101@gmail.com>
+Date:   Sun Oct 31 23:53:39 2021 +0700
+
+    Merge branch 'ShowMenu' of https://github.com/andrewquang512/POS into ShowMenu
+
+commit 2c34676643499971bc407ba2d954304337a8fe56
+Author: Logggg.ng <thanhlong090101@gmail.com>
+Date:   Sun Oct 31 23:53:14 2021 +0700
+
+    Add popup food
+
+commit 956f21f9454d718bf5504580abbd55a1042d69c8
+Author: hoangkui <hoangkui2001@gmail.com>
+Date:   Sun Oct 31 21:42:47 2021 +0700
+
+    hoangkui implement cart
+
+commit 7307580cba87e08586f6e7b9eb665387c3cee3cd
+Author: hoangkui <hoangkui2001@gmail.com>
+Date:   Sun Oct 31 16:12:42 2021 +0700
+
+    hoangkui
+
+commit bde9dec9e078072ea1083d44483a3336f92b9a42
+Author: Logggg.ng <thanhlong090101@gmail.com>
+Date:   Wed Oct 27 22:00:53 2021 +0700
+
+    Add file MenuShow
+
+commit 6311dec9c7a18a62ab3b9aeede9fae6df79b4348
+Author: andrewquang <andrew.viquang@gmail.com>
+Date:   Tue Oct 26 19:25:32 2021 +0700
+
+    init files, packagejson
