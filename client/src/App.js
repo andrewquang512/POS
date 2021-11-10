@@ -1,27 +1,36 @@
-
-import Menu from './components/Menu';
+import Menu from "./components/Menu";
 // import ShowCard from './components/ShowCard';
-import './index.css';
-import ShowCart from "./components/ShowCart"
-import GlobalState from './components/GlobalState';
-
-import { useState } from 'react';
-import Filter from './components/Header/Filter';
-import TypeProducts from './components/TypeProducts';
-import ShowInforLine from './components/ShowInforLine';
+import "./index.css";
+import ShowCart from "./components/ShowCart";
+import GlobalState from "./components/GlobalState";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { useState } from "react";
+import Filter from "./components/Header/Filter";
+import TypeProducts from "./components/TypeProducts";
+import ShowInforLine from "./components/ShowInforLine";
+import Admin from "./Admin";
 function App() {
-  const [idType,setIdType]=useState(-1)
-  function ChangeForIdType(id){
+  const [idType, setIdType] = useState(-1);
+  function ChangeForIdType(id) {
     setIdType(id);
   }
   return (
-      <GlobalState>
-        <ShowCart/>
-        <Filter x={ChangeForIdType}></Filter>
-        <ShowInforLine typeId={idType}/>
-        <Menu typeId = {idType}/>
+    <>
+      <Router>
+        <Switch>
+          <Route exact path="/">
+            <GlobalState>
+              <ShowCart />
+              <Filter x={ChangeForIdType}></Filter>
+              <ShowInforLine typeId={idType} />
+              <Menu typeId={idType} />
+            </GlobalState>
+          </Route>
 
-      </GlobalState>
+          <Route path="/admin" component={Admin} />
+        </Switch>
+      </Router>
+    </>
   );
 }
 

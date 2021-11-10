@@ -90,5 +90,18 @@ router.delete("/:id", async (req, res) => {
     res.status(500).json({ success: false, message: "Internal server error" });
   }
 });
+// DELETE http://localhost:5000/api/typeproduct/id
+// Delete product
 
+router.get("/:id", async (req, res) => {
+  const conditionFilter = { _id: req.params.id };
+  // const id=req.params.id
+  try {
+    const typeProduct = await TypeProduct.find(conditionFilter);
+    res.send({ success: true, typeProduct });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ success: false, message: "Internal server error" });
+  }
+});
 module.exports = router;
