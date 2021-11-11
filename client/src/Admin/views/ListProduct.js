@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import AdminProvider, { adminContext } from "../AdminContext";
-import SingleProduct from "./SingleProduct";
+import ListProducts from "../ListProducts";
+import SingleProduct from "../ListProducts/SingleProduct";
 
 const ListProduct = () => {
   const { products, getProducts } = useContext(adminContext);
@@ -8,9 +9,12 @@ const ListProduct = () => {
   return (
     <div>
       <h1>DANH SACH SAN PHAM</h1>
-      {products.map((product, index) => (
+      <h2></h2>
+      {/* {products.map((product, index) => (
         <SingleProduct product={product} index={index} />
-      ))}
+      ))} */}
+
+      <ListProducts />
     </div>
   );
 };

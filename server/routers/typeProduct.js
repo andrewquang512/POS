@@ -97,8 +97,9 @@ router.get("/:id", async (req, res) => {
   const conditionFilter = { _id: req.params.id };
   // const id=req.params.id
   try {
-    const typeProduct = await TypeProduct.find(conditionFilter);
-    res.send({ success: true, typeProduct });
+    const typeProduct = await TypeProduct.findOne(conditionFilter);
+    console.log("vcc", typeProduct);
+    res.send({ success: true, typeProduct: typeProduct });
   } catch (error) {
     console.log(error);
     res.status(500).json({ success: false, message: "Internal server error" });

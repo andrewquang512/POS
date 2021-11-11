@@ -15,10 +15,10 @@ const reducer = (state, action) => {
     case SET_TYPE_PRODUCT:
       const { product, data } = payload;
       const index = state.products.indexOf(product);
-      const newProduct = { ...state.products[index], catelory: data };
+      state.products[index] = { ...state.products[index], typeProduct: data };
       return {
         ...state,
-        products: [...state.products, newProduct],
+        // products: [...state.products, newProduct],
       };
 
     default:

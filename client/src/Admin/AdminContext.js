@@ -20,9 +20,9 @@ const AdminProvider = ({ children }) => {
           type: PRODUCT_LOAD_SUCCESS,
           payload: products,
         });
-        // products.map((product) => {
-        //   getTypeProduct(product);
-        // });
+        products.map((product) => {
+          getTypeProduct(product);
+        });
       }
     } catch (error) {
       console.log(error);
@@ -33,12 +33,13 @@ const AdminProvider = ({ children }) => {
       const res = await axios.get(
         `http://localhost:5000/api/typeproduct/${product.catelory}`
       );
+      console.log(res.data);
       if (res.data.success) {
         dispatch({
           type: SET_TYPE_PRODUCT,
           payload: {
             product,
-            data: res.data.typeProduct,
+            data: res.data.typeProduct.name,
           },
         });
         // return res.data.typeProduct;
