@@ -35,6 +35,7 @@ const AddModal = () => {
       ...newProduct,
       img: fileInput.current.files[0],
     };
+    console.log(productAdd);
     addProduct(productAdd);
     //   axios.post("http://localhost:5000/")
   };
@@ -89,6 +90,7 @@ const AddModal = () => {
             type="file"
             // value={img}
             name="img"
+            id="img"
             ref={fileInput}
             // src="submit.gif"
             // alt="Submit"

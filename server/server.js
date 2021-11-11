@@ -6,6 +6,8 @@ const typeProductRouter = require("./routers/typeProduct");
 connectDB();
 
 const app = express();
+var fileupload = require("express-fileupload");
+app.use(fileupload());
 app.use("/uploads", express.static("uploads"));
 app.use(express.json());
 app.use(cors());

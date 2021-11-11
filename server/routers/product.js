@@ -5,7 +5,7 @@ const multer = require("multer");
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, "./uploads/");
+    cb(null, "uploads");
   },
   filename: function (req, file, cb) {
     let filename = "filenametogive";
@@ -46,6 +46,7 @@ router.get("/", async (req, res) => {
 // POST http://localhost:5000/api/product
 // Gui product len server
 router.post("/", upload.single("img"), async (req, res) => {
+  console.log(req.body);
   const { name, catelory, price, count, description } = req.body;
   // Check name
   if (!name)
@@ -54,7 +55,6 @@ router.post("/", upload.single("img"), async (req, res) => {
       .json({ success: false, message: "Name is required" });
   try {
     // All good
-    console.log(req.body.file);
     const newProduct = new Product({
       name,
       catelory,
