@@ -4,7 +4,7 @@ import { adminContext } from "../AdminContext";
 
 const AddModal = () => {
   const { typeProducts, addProduct } = useContext(adminContext);
-  const fileInput = useRef();
+  const fileInput = React.createRef();
   const [newProduct, setNewProduct] = useState({
     name: "",
     catelory: "",
@@ -29,6 +29,7 @@ const AddModal = () => {
   //   };
   console.log(newProduct);
   const handleSubmitForm = (e) => {
+    console.log(fileInput.current.files[0]);
     e.preventDefault();
     const productAdd = {
       ...newProduct,
@@ -86,11 +87,11 @@ const AddModal = () => {
           />
           <input
             type="file"
-            value={img}
+            // value={img}
             name="img"
             ref={fileInput}
-            src="submit.gif"
-            alt="Submit"
+            // src="submit.gif"
+            // alt="Submit"
             // style="float:right"
             width="48"
             height="48"

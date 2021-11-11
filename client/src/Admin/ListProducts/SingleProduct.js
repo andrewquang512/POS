@@ -17,7 +17,7 @@ const SingleProduct = ({ product, index }) => {
         <td className="listProducts-content-row-item">{count}</td>
         <td className="listProducts-content-row-item">{description}</td>
         <td className="listProducts-content-row-item">{price}</td>
-        <td className="listProducts-content-row-item"></td>
+        <td className="listProducts-content-row-item">{img}</td>
         <td className="listProducts-content-row-item">
           <button className="listProducts-content-row-remove">
             {" "}

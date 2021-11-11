@@ -8,6 +8,8 @@ const storage = multer.diskStorage({
     cb(null, "./uploads/");
   },
   filename: function (req, file, cb) {
+    let filename = "filenametogive";
+    req.body.file = filename;
     cb(null, new Date().toISOString() + file.originalname);
   },
 });
@@ -24,7 +26,7 @@ const fileFilter = (req, file, cb) => {
 const upload = multer({
   storage: storage,
   limits: {
-    fileSize: 1024 * 1024 * 5,
+    fileSize: 10 * 1024 * 1024,
   },
   fileFilter: fileFilter,
 });
@@ -44,7 +46,7 @@ router.get("/", async (req, res) => {
 // POST http://localhost:5000/api/product
 // Gui product len server
 router.post("/", upload.single("img"), async (req, res) => {
-  const { name, catelory, price, count, description, img } = req.body;
+  const { name, catelory, price, count, description } = req.body;
   // Check name
   if (!name)
     return res
@@ -52,7 +54,7 @@ router.post("/", upload.single("img"), async (req, res) => {
       .json({ success: false, message: "Name is required" });
   try {
     // All good
-    console.log(req.file);
+    console.log(req.body.file);
     const newProduct = new Product({
       name,
       catelory,
