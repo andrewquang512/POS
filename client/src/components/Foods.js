@@ -19,7 +19,7 @@ SKU: '01',
     typeId:0,
 SKU: '02',
     image: '/image/banhcanh.jpg',
-    name: 'Bánh banh',
+    name: 'Bánh canh',
     description:
       '- nhiều tôm  - không hành  - đậm đà',
     price: 60,
