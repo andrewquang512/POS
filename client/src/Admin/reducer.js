@@ -2,6 +2,7 @@ import {
   ADD_TYPE_PRODUCT,
   PRODUCT_LOAD_SUCCESS,
   SET_TYPE_PRODUCT,
+  GET_TYPE_PRODUCT,
 } from "./constant";
 
 const reducer = (state, action) => {
@@ -11,6 +12,11 @@ const reducer = (state, action) => {
       return {
         ...state,
         products: payload,
+      };
+    case GET_TYPE_PRODUCT:
+      return {
+        ...state,
+        typeProducts: payload,
       };
     case SET_TYPE_PRODUCT:
       const { product, data } = payload;

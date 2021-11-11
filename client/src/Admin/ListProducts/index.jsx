@@ -1,14 +1,25 @@
-import React, { useCallback, useState, useEffect, useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { adminContext } from "../AdminContext";
 // import Product from "./Product";
 // import Products from "../../Products";
 import "../index-hoangkui.css";
+import AddModal from "./AddModal";
 import SingleProduct from "./SingleProduct";
 
 // import { useHistory } from "react-router-dom";
 const ListProducts = () => {
   const { products, getProducts } = useContext(adminContext);
+  useEffect(() => getProducts(), []);
 
+  const openModalAdd = () => {
+    var modal = document.querySelector(".modal-hoangkui-add");
+    modal.style.display = "block";
+    window.onclick = function (e) {
+      if (e.target === modal) {
+        modal.style.display = "none";
+      }
+    };
+  };
   return (
     <>
       <div className="listProducts-heading">
@@ -21,7 +32,10 @@ const ListProducts = () => {
           />
           <i className="fas fa-search"></i>
         </div>
-        <button className="listProducts-heading-add-product">
+        <button
+          onClick={openModalAdd}
+          className="listProducts-heading-add-product"
+        >
           <i className="fas fa-plus"></i>
           Thêm sản phẩm
         </button>
@@ -67,6 +81,10 @@ const ListProducts = () => {
             <i id="nextPage" className="fas fa-step-forward"></i>
           </button>
         </div>
+      </div>
+
+      <div className="modal-hoangkui-add modal-hoangkui">
+        <AddModal />
       </div>
     </>
   );

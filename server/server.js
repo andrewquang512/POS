@@ -6,6 +6,7 @@ const typeProductRouter = require("./routers/typeProduct");
 connectDB();
 
 const app = express();
+app.use("/uploads", express.static("uploads"));
 app.use(express.json());
 app.use(cors());
 

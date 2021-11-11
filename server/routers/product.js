@@ -1,6 +1,33 @@
 const express = require("express");
 const router = express.Router();
 const Product = require("../model/Product");
+const multer = require("multer");
+
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, "./uploads/");
+  },
+  filename: function (req, file, cb) {
+    cb(null, new Date().toISOString() + file.originalname);
+  },
+});
+
+const fileFilter = (req, file, cb) => {
+  // reject a file
+  if (file.mimetype === "image/jpeg" || file.mimetype === "image/png") {
+    cb(null, true);
+  } else {
+    cb(null, false);
+  }
+};
+
+const upload = multer({
+  storage: storage,
+  limits: {
+    fileSize: 1024 * 1024 * 5,
+  },
+  fileFilter: fileFilter,
+});
 
 // GET http://localhost:5000/api/product
 // Gui product len server
@@ -16,7 +43,7 @@ router.get("/", async (req, res) => {
 
 // POST http://localhost:5000/api/product
 // Gui product len server
-router.post("/", async (req, res) => {
+router.post("/", upload.single("img"), async (req, res) => {
   const { name, catelory, price, count, description, img } = req.body;
   // Check name
   if (!name)
@@ -25,13 +52,14 @@ router.post("/", async (req, res) => {
       .json({ success: false, message: "Name is required" });
   try {
     // All good
+    console.log(req.file);
     const newProduct = new Product({
       name,
       catelory,
       price,
       count,
       description,
-      img,
+      img: req.file,
     });
     await newProduct.save();
     res.send({

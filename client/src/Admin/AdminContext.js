@@ -1,7 +1,11 @@
 import { createContext, useReducer } from "react";
 import reducer from "./reducer";
 import axios from "axios";
-import { PRODUCT_LOAD_SUCCESS, SET_TYPE_PRODUCT } from "./constant";
+import {
+  PRODUCT_LOAD_SUCCESS,
+  SET_TYPE_PRODUCT,
+  GET_TYPE_PRODUCT,
+} from "./constant";
 export const adminContext = createContext();
 
 const AdminProvider = ({ children }) => {
@@ -24,8 +28,32 @@ const AdminProvider = ({ children }) => {
           getTypeProduct(product);
         });
       }
+      getTypeProducts();
     } catch (error) {
       console.log(error);
+    }
+  };
+  const addProduct = async (newProduct) => {
+    try {
+      await axios.post("http://localhost:5000/api/product", newProduct);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  const getTypeProducts = async () => {
+    try {
+      const res = await axios.get(`http://localhost:5000/api/typeproduct`);
+      console.log(res.data);
+      if (res.data.success) {
+        dispatch({
+          type: GET_TYPE_PRODUCT,
+          payload: res.data.typeProducts,
+        });
+        // return res.data.typeProduct;
+      }
+    } catch (error) {
+      console.log(error);
+      // return;
     }
   };
   const getTypeProduct = async (product) => {
@@ -49,7 +77,14 @@ const AdminProvider = ({ children }) => {
       // return;
     }
   };
-  const adminValue = { products, typeProducts, getProducts, getTypeProduct };
+  const adminValue = {
+    products,
+    typeProducts,
+    getProducts,
+    getTypeProduct,
+    getTypeProducts,
+    addProduct,
+  };
   return (
     <adminContext.Provider value={adminValue}>{children}</adminContext.Provider>
   );
