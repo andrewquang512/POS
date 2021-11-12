@@ -2,34 +2,34 @@ const express = require("express");
 const router = express.Router();
 const Product = require("../model/Product");
 const multer = require("multer");
+const upload = multer({ dest: "img/" });
+// const storage = multer.diskStorage({
+//   destination: function (req, file, cb) {
+//     cb(null, "./uploads/");
+//   },
+//   filename: function (req, file, cb) {
+//     let filename = "filenametogive";
+//     req.body.file = filename;
+//     cb(null, new Date().toISOString() + file.originalname);
+//   },
+// });
 
-const storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    cb(null, "uploads");
-  },
-  filename: function (req, file, cb) {
-    let filename = "filenametogive";
-    req.body.file = filename;
-    cb(null, new Date().toISOString() + file.originalname);
-  },
-});
+// const fileFilter = (req, file, cb) => {
+//   // reject a file
+//   if (file.mimetype === "image/jpeg" || file.mimetype === "image/png") {
+//     cb(null, true);
+//   } else {
+//     cb(null, false);
+//   }
+// };
 
-const fileFilter = (req, file, cb) => {
-  // reject a file
-  if (file.mimetype === "image/jpeg" || file.mimetype === "image/png") {
-    cb(null, true);
-  } else {
-    cb(null, false);
-  }
-};
-
-const upload = multer({
-  storage: storage,
-  limits: {
-    fileSize: 10 * 1024 * 1024,
-  },
-  fileFilter: fileFilter,
-});
+// const upload = multer({
+//   storage: storage,
+//   limits: {
+//     fileSize: 10 * 1024 * 1024,
+//   },
+//   fileFilter: fileFilter,
+// });
 
 // GET http://localhost:5000/api/product
 // Gui product len server
@@ -43,9 +43,15 @@ router.get("/", async (req, res) => {
   }
 });
 
+router.post("/img", upload.single("img"), async (req, res) => {
+  console.log(req.file);
+});
+
 // POST http://localhost:5000/api/product
 // Gui product len server
 router.post("/", upload.single("img"), async (req, res) => {
+  console.log(req.file);
+  console.log(req.files);
   console.log(req.body);
   const { name, catelory, price, count, description } = req.body;
   // Check name

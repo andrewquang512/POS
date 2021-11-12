@@ -4,13 +4,13 @@ import { adminContext } from "../AdminContext";
 
 const AddModal = () => {
   const { typeProducts, addProduct } = useContext(adminContext);
-  const fileInput = React.createRef();
+  // const fileInput = React.createRef();
   const [newProduct, setNewProduct] = useState({
     name: "",
     catelory: "",
     price: -1,
     description: "",
-    img: "",
+    img: File,
     count: -2,
   });
   const { name, catelory, price, description, img, count } = newProduct;
@@ -20,30 +20,35 @@ const AddModal = () => {
       [e.target.name]: e.target.value,
     });
   };
-  //   const onChangeAva = (e) => {
-  //     // console.log(fileInput.current.files[0].name);
-  //     setNewProduct({
-  //       ...newProduct,
-  //       img: fileInput.current.files[0],
-  //     });
-  //   };
+  const onChangeAva = (e) => {
+    // console.log(fileInput.current.files[0].name);
+    setNewProduct({
+      ...newProduct,
+      img: e.target.files[0],
+    });
+  };
   console.log(newProduct);
   const handleSubmitForm = (e) => {
-    console.log(fileInput.current.files[0]);
+    // console.log(fileInput.current.files[0]);
     e.preventDefault();
     const productAdd = {
       ...newProduct,
-      img: fileInput.current.files[0],
+      // img: fileInput.current.files[0],
     };
     console.log(productAdd);
-    addProduct(productAdd);
+    addProduct(img);
     //   axios.post("http://localhost:5000/")
   };
   return (
     <div className="modal-content-hoangkui">
       <div className="input-container">
-        <form onSubmit={handleSubmitForm}>
-          <input
+        <form
+          action="http://localhost:5000/api/product/img"
+          method="POST"
+          // onSubmit={handleSubmitForm}
+          enctype="multipart/form-data"
+        >
+          {/* <input
             type="text"
             name="name"
             value={name}
@@ -85,16 +90,18 @@ const AddModal = () => {
             onChange={onChangeInputProduct}
             className="input-item"
             placeholder="Nhập giá"
-          />
+          /> */}
           <input
             type="file"
             // value={img}
             name="img"
-            id="img"
-            ref={fileInput}
+            accept="image/*"
+            // id="img"
+            // ref={fileInput}
             // src="submit.gif"
             // alt="Submit"
             // style="float:right"
+            // onChange={onChangeAva}
             width="48"
             height="48"
           />

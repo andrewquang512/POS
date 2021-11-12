@@ -98,7 +98,7 @@ router.get("/:id", async (req, res) => {
   // const id=req.params.id
   try {
     const typeProduct = await TypeProduct.findOne(conditionFilter);
-    console.log("vcc", typeProduct);
+    // console.log("vcc", typeProduct);
     res.send({ success: true, typeProduct: typeProduct });
   } catch (error) {
     console.log(error);
