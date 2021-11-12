@@ -1,12 +1,10 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect, useContext } from "react";
 import FoodFilter from "./FoodFilter";
 import Slider from "react-slick";
-import { Types } from "./Types";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { adminContext } from "../AdminContext";
 
-// import { BorderLeft } from "@material-ui/icons";
-console.log(Types);
 const Filter = ({ x }) => {
   const [selected, setSelected] = useState(-1);
   const ref = useRef({});
@@ -52,14 +50,9 @@ const Filter = ({ x }) => {
     setSelected(id);
   };
 
-  useEffect(() => {
-    return () => {
-      console.log("pre", selected);
-    };
-  }, [selected]);
-
-  const [types, setTypes] = useState(Types);
-
+  // const [types, setTypes] = useState(Types);
+  const { typeProducts } = useContext(adminContext);
+  console.log("vcccc", typeProducts);
   return (
     <>
       <div className="backtohome">
@@ -75,23 +68,22 @@ const Filter = ({ x }) => {
       {/* <ul className="filter-list"> */}
       <Slider ref={ref} {...settings}>
         <FoodFilter
-          handleOneSelected={handleOneSelected}
-          selected={selected}
-          key={-1}
-          name="Tất cả món"
-          id={-1}
-          x_value={x}
+          // handleOneSelected={handleOneSelected}
+          // selected={selected}
+          // key={-1}
+          // name="Tất cả món"
+          // id={-1}
+          typeProduct={{ _id: -1, name: "Tất cả món", img: "none" }}
+          // x_value={x}
         />
-        {types.map((typeFood, index) => {
+        {typeProducts.map((typeProduct) => {
           return (
             <FoodFilter
-              handleOneSelected={handleOneSelected}
-              selected={selected}
+              // handleOneSelected={handleOneSelected}
+              // selected={selected}
               // className={}
-              key={typeFood.typeId}
-              name={typeFood.typeName}
-              id={typeFood.typeId}
-              x_value={x}
+              typeProduct={typeProduct}
+              // x_value={x}
             />
           );
         })}

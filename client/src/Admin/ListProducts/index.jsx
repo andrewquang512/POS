@@ -1,5 +1,6 @@
 import React, { useContext, useEffect } from "react";
 import { adminContext } from "../AdminContext";
+import Filter from "../Header/Filter";
 // import Product from "./Product";
 // import Products from "../../Products";
 import "../index-hoangkui.css";
@@ -22,8 +23,10 @@ const ListProducts = () => {
   };
   return (
     <>
+      <Filter />
       <div className="listProducts-heading">
         <h3 className="listProducts-heading-title">Danh sách sản phẩm</h3>
+
         <div className="listProducts-heading-wrap-search">
           <input
             type="text"
