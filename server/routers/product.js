@@ -1,8 +1,8 @@
 const express = require("express");
 const router = express.Router();
 const Product = require("../model/Product");
-const multer = require("multer");
-const upload = multer({ dest: "img/" });
+// const multer = require("multer");
+// const upload = multer({ dest: "img/" });
 // const storage = multer.diskStorage({
 //   destination: function (req, file, cb) {
 //     cb(null, "./uploads/");
@@ -11,6 +11,14 @@ const upload = multer({ dest: "img/" });
 //     let filename = "filenametogive";
 //     req.body.file = filename;
 //     cb(null, new Date().toISOString() + file.originalname);
+//   },
+// });
+// const storage = multer.diskStorage({
+//   destination: function (req, file, cb) {
+//     cb(null, "./images");
+//   },
+//   filename: function (req, file, cb) {
+//     cb(null, file.fieldname + "-" + Date.now());
 //   },
 // });
 
@@ -30,6 +38,17 @@ const upload = multer({ dest: "img/" });
 //   },
 //   fileFilter: fileFilter,
 // });
+// var storage = multer.diskStorage({
+//   destination: function (req, file, cb) {
+//     console.log(req.body.internalUserID); // YAY, IT'S POPULATED
+//     cb(null, "listing-pics/");
+//   },
+//   filename: function (req, file, cb) {
+//     cb(null, file.fieldname + "-" + Date.now());
+//   },
+// });
+
+// var upload = multer({ storage: storage });
 
 // GET http://localhost:5000/api/product
 // Gui product len server
@@ -43,17 +62,14 @@ router.get("/", async (req, res) => {
   }
 });
 
-router.post("/img", upload.single("img"), async (req, res) => {
-  console.log(req.file);
-});
-
 // POST http://localhost:5000/api/product
 // Gui product len server
-router.post("/", upload.single("img"), async (req, res) => {
-  console.log(req.file);
-  console.log(req.files);
-  console.log(req.body);
-  const { name, catelory, price, count, description } = req.body;
+router.post("/", async (req, res) => {
+  // console.log(req.file);
+  // console.log(req.files);
+  // console.log(req.body);
+  // console.log(req);
+  const { name, catelory, price, count, description, img } = req.body;
   // Check name
   if (!name)
     return res
@@ -67,7 +83,7 @@ router.post("/", upload.single("img"), async (req, res) => {
       price,
       count,
       description,
-      img: req.file,
+      img,
     });
     await newProduct.save();
     res.send({

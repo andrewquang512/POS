@@ -1,16 +1,18 @@
 const express = require("express");
 const cors = require("cors");
 const connectDB = require("./config/db");
+const bodyParser = require("body-parser");
 const productRouter = require("./routers/product");
 const typeProductRouter = require("./routers/typeProduct");
 connectDB();
-
 const app = express();
+app.use(cors());
+app.use(express.json());
+app.use(express.json({ extended: true }));
+app.use(express.urlencoded({ extended: true }));
 var fileupload = require("express-fileupload");
 app.use(fileupload());
-app.use("/uploads", express.static("uploads"));
-app.use(express.json());
-app.use(cors());
+app.use("/images", express.static("images"));
 
 app.use("/api/product", productRouter);
 app.use("/api/typeproduct", typeProductRouter);

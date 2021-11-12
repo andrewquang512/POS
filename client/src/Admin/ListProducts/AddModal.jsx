@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useContext, useRef, useState } from "react";
 import { adminContext } from "../AdminContext";
+import FileBase from "react-file-base64";
 
 const AddModal = () => {
   const { typeProducts, addProduct } = useContext(adminContext);
@@ -8,10 +9,10 @@ const AddModal = () => {
   const [newProduct, setNewProduct] = useState({
     name: "",
     catelory: "",
-    price: -1,
+    price: 0,
     description: "",
-    img: File,
-    count: -2,
+    img: "",
+    count: 0,
   });
   const { name, catelory, price, description, img, count } = newProduct;
   const onChangeInputProduct = (e) => {
@@ -29,26 +30,36 @@ const AddModal = () => {
   };
   console.log(newProduct);
   const handleSubmitForm = (e) => {
-    // console.log(fileInput.current.files[0]);
     e.preventDefault();
-    const productAdd = {
-      ...newProduct,
-      // img: fileInput.current.files[0],
-    };
-    console.log(productAdd);
-    addProduct(img);
-    //   axios.post("http://localhost:5000/")
+    const data = new FormData();
+    data.append("img", newProduct.img);
+    data.append("name", newProduct.name);
+    data.append("catelory", newProduct.catelory);
+    data.append("price", newProduct.price);
+    data.append("description", newProduct.description);
+    data.append("count", newProduct.count);
+
+    // const productAdd = {
+    //   ...newProduct,
+    // };
+    console.log(data);
+    addProduct(newProduct);
+    // axios
+    //   .post("http://localhost:5000/api/product", data)
+    //   .then((res) => console.log(res))
+    //   .catch((err) => console.log(err));
+    //   axios.post("http://localhost:3000/")
   };
   return (
     <div className="modal-content-hoangkui">
       <div className="input-container">
         <form
-          action="http://localhost:5000/api/product/img"
-          method="POST"
-          // onSubmit={handleSubmitForm}
-          enctype="multipart/form-data"
+          // action="http://localhost:5000/api/product"
+          // method="POST"
+          onSubmit={handleSubmitForm}
+          encType="multipart/form-data"
         >
-          {/* <input
+          <input
             type="text"
             name="name"
             value={name}
@@ -65,7 +76,6 @@ const AddModal = () => {
               <option value={typeProduct._id}>{typeProduct.name}</option>
             ))}
           </select>
-
           <input
             type="number"
             name="count"
@@ -90,20 +100,13 @@ const AddModal = () => {
             onChange={onChangeInputProduct}
             className="input-item"
             placeholder="Nhập giá"
-          /> */}
-          <input
+          />{" "}
+          <FileBase
             type="file"
-            // value={img}
-            name="img"
-            accept="image/*"
-            // id="img"
-            // ref={fileInput}
-            // src="submit.gif"
-            // alt="Submit"
-            // style="float:right"
-            // onChange={onChangeAva}
-            width="48"
-            height="48"
+            multiple={false}
+            onDone={({ base64 }) =>
+              setNewProduct({ ...newProduct, img: base64 })
+            }
           />
           <input type="submit" value="Submit"></input>
         </form>

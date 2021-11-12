@@ -19,8 +19,9 @@
     "gridfs-stream": "^1.1.1",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.0.12",
-    "multer": "^1.4.3",
+    "multer": "^2.0.0-rc.1",
     "multer-gridfs-storage": "^5.0.2",
-    "nodemon": "^2.0.14"
+    "nodemon": "^2.0.14",
+    "react-file-base64": "^1.0.3"
   }
 }

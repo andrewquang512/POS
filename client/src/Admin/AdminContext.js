@@ -35,16 +35,10 @@ const AdminProvider = ({ children }) => {
   };
   const addProduct = async (newProduct) => {
     try {
-      console.log(newProduct);
-      // const res = await axios.post(
-      //   "http://localhost:5000/api/product",
-      //   newProduct
-      // );
-      const res = await axios.post(
-        "http://localhost:5000/api/product/img",
-        newProduct
-      );
-      console.log(res);
+      // console.log(newProduct);
+      await axios.post("http://localhost:5000/api/product", newProduct);
+
+      // console.log(res);
     } catch (error) {
       console.log(error);
     }
