@@ -1,54 +1,47 @@
 const express = require("express");
 const router = express.Router();
 const Product = require("../model/Product");
-// const multer = require("multer");
-// const upload = multer({ dest: "img/" });
-// const storage = multer.diskStorage({
-//   destination: function (req, file, cb) {
-//     cb(null, "./uploads/");
-//   },
-//   filename: function (req, file, cb) {
-//     let filename = "filenametogive";
-//     req.body.file = filename;
-//     cb(null, new Date().toISOString() + file.originalname);
-//   },
-// });
-// const storage = multer.diskStorage({
-//   destination: function (req, file, cb) {
-//     cb(null, "./images");
-//   },
-//   filename: function (req, file, cb) {
-//     cb(null, file.fieldname + "-" + Date.now());
-//   },
-// });
+// const upload = multer({ dest: "/images" });
 
 // const fileFilter = (req, file, cb) => {
-//   // reject a file
 //   if (file.mimetype === "image/jpeg" || file.mimetype === "image/png") {
 //     cb(null, true);
 //   } else {
-//     cb(null, false);
+//     cb("JPEG and PNG only supported", false);
 //   }
 // };
 
+// const storage = multer.diskStorage({
+//   destination: function (req, file, cb) {
+//     cb(null, "../uploads/");
+//   },
+//   filename: function (req, file, cb) {
+//     cb(null, new Date().toISOString().replace("c", "-") + file.originalname);
+//   },
+// });
 // const upload = multer({
 //   storage: storage,
-//   limits: {
-//     fileSize: 10 * 1024 * 1024,
+//   limts: {
+//     fileSize: 1024 * 1024 * 5,
 //   },
 //   fileFilter: fileFilter,
 // });
-// var storage = multer.diskStorage({
-//   destination: function (req, file, cb) {
-//     console.log(req.body.internalUserID); // YAY, IT'S POPULATED
-//     cb(null, "listing-pics/");
-//   },
-//   filename: function (req, file, cb) {
-//     cb(null, file.fieldname + "-" + Date.now());
-//   },
-// });
 
-// var upload = multer({ storage: storage });
+const multer = require("multer");
+var storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, "../uploads");
+  },
+
+  filename: function (req, file, cb) {
+    let filename = "filenametogive";
+    req.body.file = filename;
+
+    cb(null, filename);
+  },
+});
+
+var upload = multer({ storage: storage });
 
 // GET http://localhost:5000/api/product
 // Gui product len server
@@ -64,10 +57,11 @@ router.get("/", async (req, res) => {
 
 // POST http://localhost:5000/api/product
 // Gui product len server
-router.post("/", async (req, res) => {
+router.post("/", upload.single("img"), async (req, res) => {
+  console.log(req.file);
   // console.log(req.file);
-  // console.log(req.files);
-  // console.log(req.body);
+  console.log(req.files);
+  console.log(req.body);
   // console.log(req);
   const { name, catelory, price, count, description, img } = req.body;
   // Check name

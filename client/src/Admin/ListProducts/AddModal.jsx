@@ -28,7 +28,7 @@ const AddModal = () => {
       img: e.target.files[0],
     });
   };
-  console.log(newProduct);
+  // console.log(newProduct);
   const handleSubmitForm = (e) => {
     e.preventDefault();
     const data = new FormData();
@@ -42,13 +42,13 @@ const AddModal = () => {
     // const productAdd = {
     //   ...newProduct,
     // };
-    console.log(data);
-    addProduct(newProduct);
-    // axios
-    //   .post("http://localhost:5000/api/product", data)
-    //   .then((res) => console.log(res))
-    //   .catch((err) => console.log(err));
-    //   axios.post("http://localhost:3000/")
+    // console.log(data);
+    // addProduct(newProduct);
+    axios
+      .post("http://localhost:5000/api/product", newProduct)
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err));
+    // axios.post("http://localhost:3000/")
   };
   return (
     <div className="modal-content-hoangkui">
@@ -101,12 +101,18 @@ const AddModal = () => {
             className="input-item"
             placeholder="Nhập giá"
           />{" "}
-          <FileBase
+          {/* <FileBase
             type="file"
             multiple={false}
             onDone={({ base64 }) =>
               setNewProduct({ ...newProduct, img: base64 })
             }
+          /> */}
+          <input
+            type="file"
+            name="img"
+            accept="image/*"
+            onChange={onChangeAva}
           />
           <input type="submit" value="Submit"></input>
         </form>
