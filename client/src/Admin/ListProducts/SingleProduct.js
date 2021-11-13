@@ -18,7 +18,11 @@ const SingleProduct = ({ product, index }) => {
         <td className="listProducts-content-row-item">{description}</td>
         <td className="listProducts-content-row-item">{price}</td>
         <td className="listProducts-content-row-item">
-          <img src={img} alt="" className="listProducts-content-row-item-img" />
+          <img
+            src={`http://localhost:5000/${img}`}
+            alt=""
+            className="listProducts-content-row-item-img"
+          />
         </td>
         <td className="listProducts-content-row-item">
           <button className="listProducts-content-row-remove">

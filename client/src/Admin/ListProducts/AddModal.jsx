@@ -43,11 +43,11 @@ const AddModal = () => {
     //   ...newProduct,
     // };
     // console.log(data);
-    // addProduct(newProduct);
-    axios
-      .post("http://localhost:5000/api/product", newProduct)
-      .then((res) => console.log(res))
-      .catch((err) => console.log(err));
+    addProduct(data);
+    // axios
+    //   .post("http://localhost:5000/api/product", newProduct)
+    //   .then((res) => console.log(res))
+    //   .catch((err) => console.log(err));
     // axios.post("http://localhost:3000/")
   };
   return (

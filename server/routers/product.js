@@ -1,47 +1,49 @@
 const express = require("express");
 const router = express.Router();
 const Product = require("../model/Product");
-// const upload = multer({ dest: "/images" });
-
-// const fileFilter = (req, file, cb) => {
-//   if (file.mimetype === "image/jpeg" || file.mimetype === "image/png") {
-//     cb(null, true);
-//   } else {
-//     cb("JPEG and PNG only supported", false);
-//   }
-// };
-
-// const storage = multer.diskStorage({
-//   destination: function (req, file, cb) {
-//     cb(null, "../uploads/");
-//   },
-//   filename: function (req, file, cb) {
-//     cb(null, new Date().toISOString().replace("c", "-") + file.originalname);
-//   },
-// });
-// const upload = multer({
-//   storage: storage,
-//   limts: {
-//     fileSize: 1024 * 1024 * 5,
-//   },
-//   fileFilter: fileFilter,
-// });
 
 const multer = require("multer");
-var storage = multer.diskStorage({
+// const upload = multer({ dest: "./uploads/" });
+
+const fileFilter = (req, file, cb) => {
+  if (file.mimetype === "image/jpeg" || file.mimetype === "image/png") {
+    cb(null, true);
+  } else {
+    cb("JPEG and PNG only supported", false);
+  }
+};
+
+const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, "../uploads");
+    cb(null, "./uploads/");
   },
-
   filename: function (req, file, cb) {
-    let filename = "filenametogive";
-    req.body.file = filename;
-
-    cb(null, filename);
+    cb(null, new Date().toISOString().replace(/:/g, "-") + file.originalname);
   },
 });
+const upload = multer({
+  storage: storage,
+  limts: {
+    fileSize: 1024 * 1024 * 5,
+  },
+  fileFilter: fileFilter,
+});
 
-var upload = multer({ storage: storage });
+// const multer = require("multer");
+// var storage = multer.diskStorage({
+//   destination: function (req, file, cb) {
+//     cb(null, "../uploads");
+//   },
+
+//   filename: function (req, file, cb) {
+//     let filename = "filenametogive";
+//     req.body.file = filename;
+
+//     cb(null, filename);
+//   },
+// });
+
+// var upload = multer({ storage: storage });
 
 // GET http://localhost:5000/api/product
 // Gui product len server
@@ -58,12 +60,7 @@ router.get("/", async (req, res) => {
 // POST http://localhost:5000/api/product
 // Gui product len server
 router.post("/", upload.single("img"), async (req, res) => {
-  console.log(req.file);
-  // console.log(req.file);
-  console.log(req.files);
-  console.log(req.body);
-  // console.log(req);
-  const { name, catelory, price, count, description, img } = req.body;
+  const { name, catelory, price, count, description } = req.body;
   // Check name
   if (!name)
     return res
@@ -77,7 +74,7 @@ router.post("/", upload.single("img"), async (req, res) => {
       price,
       count,
       description,
-      img,
+      img: req.file.path,
     });
     await newProduct.save();
     res.send({
