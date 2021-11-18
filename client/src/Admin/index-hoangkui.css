@@ -213,7 +213,7 @@ tr:nth-child(even) {
   display: flex;
   align-items: center;
   /* justify-content: center; */
-  padding-left: 100px;
+  /* padding-left: 110px; */
   margin: 16px 0;
 }
 .input-label {
@@ -228,4 +228,23 @@ tr:nth-child(even) {
 }
 .input-box-submit {
   margin-bottom: 100px;
+}
+.input-box-textarea {
+  resize: none;
+  width: 162px;
+  min-height: 172px;
+}
+.button-upload {
+  padding: 4px 6px;
+  /* line-height: 1; */
+  font-size: 14px;
+  cursor: pointer;
+}
+.button-upload-preview {
+  width: 40px;
+  height: 40px;
+}
+.content-center {
+  margin: 0 auto;
+  text-align: center;
 }

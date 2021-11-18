@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import { adminContext } from "../AdminContext";
 import swal from "sweetalert";
 import Modal from "react-modal";
+import ButtonUpload from "../ButtonUpload";
 const customStyles = {
   content: {
     top: "50%",
@@ -10,6 +11,8 @@ const customStyles = {
     bottom: "auto",
     marginRight: "-50%",
     transform: "translate(-50%, -50%)",
+    width: 700,
+    textAlign: "center",
   },
 };
 const SingleProduct = ({ product, index }) => {
@@ -92,8 +95,9 @@ const SingleProduct = ({ product, index }) => {
       </tr>
 
       <Modal
-        className="Modal"
-        overlayClassName="Overlay"
+        // style={{ width: 600 }}
+        // className="Modal"
+        // overlayClassName="Overlay"
         isOpen={modalIsOpen}
         onAfterOpen={afterOpenModal}
         onRequestClose={closeModal}
@@ -104,8 +108,7 @@ const SingleProduct = ({ product, index }) => {
         <button className="modal-close" onClick={closeModal}>
           close
         </button>
-        <div>Sản phẩm</div>
-        <form onSubmit={handleUpdate}>
+        <form className="content-center" onSubmit={handleUpdate}>
           <div className="input-container">
             <label htmlFor="" className="input-label">
               Tên
@@ -167,24 +170,14 @@ const SingleProduct = ({ product, index }) => {
             <textarea
               type="text"
               name="description"
+              className="input-box input-box-textarea"
               value={productUpdate.description}
               onChange={onChangeProduct}
               id=""
             />
           </div>
           <div className="input-container">
-            <label htmlFor="" className="input-label">
-              Hình ảnh
-            </label>
-            <input
-              className="input-box"
-              onChange={(e) =>
-                setProductUpdate({ ...productUpdate, img: e.target.files[0] })
-              }
-              type="file"
-              name="img"
-              id=""
-            />
+            <ButtonUpload text="Chọn ảnh" src={img} />
           </div>
           <input
             className="input-box input-box-submit"
