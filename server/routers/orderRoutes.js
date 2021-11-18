@@ -1,6 +1,6 @@
-const express = require('express')
-const router = express.Router()
-const orderController = require('../controllers/orderController.js')
+const express = require("express");
+const router = express.Router();
+const orderController = require("../controllers/orderController.js");
 
 router
   .route('/')
@@ -10,4 +10,4 @@ router.route('/:id').get(orderController.getOrderById)
 router.route('/:id/pay').put(orderController.updateOrderToPaid)
 router.route('/:id/deliver').put(orderController.updateOrderToDelivered)
 
-module.exports = router
+module.exports = router;
