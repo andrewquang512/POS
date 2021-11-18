@@ -6,7 +6,6 @@ const OrderSchema = new Schema({
     {
       name: { type: String, required: true },
       count: { type: Number, required: true },
-      img: { type: String, required: true },
       price: { type: Number, required: true },
       product: {
         type: mongoose.Schema.Types.ObjectId,
@@ -15,16 +14,9 @@ const OrderSchema = new Schema({
       },
     },
   ],
-  paymentMethod: {
+  usingMethod: {
     type: String,
     required: true,
-    default: 'Cash',
-  },
-  paymentResult: {
-    id: { type: String },
-    status: { type: String },
-    update_time: { type: String },
-    email_address: { type: String },
   },
   totalPrice: {
     type: Number,

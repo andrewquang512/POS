@@ -4,7 +4,7 @@ const Order = require('../model/Order')
 // @route   POST /api/orders
 // @access  Private
 const addOrderItems = async (req, res) => {
-  const { OrderItems, paymentMethod, itemsPrice, totalPrice } = req.body
+  const { OrderItems, usingMethod, totalPrice } = req.body
 
   if (OrderItems && OrderItems.length === 0) {
     res.status(400)
@@ -13,8 +13,7 @@ const addOrderItems = async (req, res) => {
   } else {
     const order = new Order({
       OrderItems,
-      paymentMethod,
-      itemsPrice,
+      usingMethod,
       totalPrice,
     })
 
@@ -39,7 +38,7 @@ const getOrderById = async (req, res) => {
 }
 
 // @desc    Update order to paid
-// @route   GET /api/orders/:id/pay
+// @route   PUT /api/orders/:id/pay
 // @access  Private
 const updateOrderToPaid = async (req, res) => {
   const order = await Order.findById(req.params.id)
@@ -47,13 +46,6 @@ const updateOrderToPaid = async (req, res) => {
   if (order) {
     order.isPaid = true
     order.paidAt = Date.now()
-    order.paymentResult = {
-      id: req.body.id,
-      status: req.body.status,
-      update_time: req.body.update_time,
-      email_address: req.body.payer.email_address,
-    }
-
     const updatedOrder = await order.save()
 
     res.json(updatedOrder)
@@ -64,7 +56,7 @@ const updateOrderToPaid = async (req, res) => {
 }
 
 // @desc    Update order to delivered
-// @route   GET /api/orders/:id/deliver
+// @route   PUT /api/orders/:id/deliver
 // @access  Private/Admin
 const updateOrderToDelivered = async (req, res) => {
   const order = await Order.findById(req.params.id)
@@ -93,7 +85,7 @@ const updateOrderToDelivered = async (req, res) => {
 // @desc    Get all orders
 // @route   GET /api/orders
 // @access  Private/Admin
-const getOrders = async (res) => {
+const getOrders = async (req, res) => {
   const orders = await Order.find({})
   res.json(orders)
 }
