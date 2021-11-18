@@ -3,7 +3,6 @@ const router = express.Router();
 const Product = require("../model/Product");
 
 const multer = require("multer");
-// const upload = multer({ dest: "./uploads/" });
 
 const fileFilter = (req, file, cb) => {
   if (file.mimetype === "image/jpeg" || file.mimetype === "image/png") {
@@ -74,7 +73,7 @@ router.post("/", upload.single("img"), async (req, res) => {
       price,
       count,
       description,
-      img: req.file.path,
+      img: `http://localhost:5000/${req.file.path}`,
     });
     await newProduct.save();
     res.send({

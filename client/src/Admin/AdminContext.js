@@ -83,6 +83,17 @@ const AdminProvider = ({ children }) => {
       // return;
     }
   };
+  const removeProduct = async (id) => {
+    try {
+      const res = await axios.delete(`http://localhost:5000/api/product/${id}`);
+      if (res.data.success) {
+        console.log(res.data.product);
+        getProducts();
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
   const adminValue = {
     products,
     typeProducts,
@@ -90,6 +101,7 @@ const AdminProvider = ({ children }) => {
     getTypeProduct,
     getTypeProducts,
     addProduct,
+    removeProduct,
   };
   return (
     <adminContext.Provider value={adminValue}>{children}</adminContext.Provider>

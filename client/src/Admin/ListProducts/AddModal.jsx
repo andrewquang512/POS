@@ -122,17 +122,3 @@ const AddModal = () => {
 };
 
 export default AddModal;
-
-// if(e.target.files[0]){
-//     const fileReader = new FileReader();
-//     fileReader.readAsDataURL(e.target.files[0]);
-
-//     fileReader.onload = () => {
-//         this.setState({
-//             avatar : fileReader.result
-//         })
-//     };
-//     fileReader.onerror = (error) => {
-//         console.log(error);
-//     }
-// }

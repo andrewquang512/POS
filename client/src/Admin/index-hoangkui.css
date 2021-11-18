@@ -42,7 +42,12 @@
   width: 50px;
   height: 50px;
 }
-
+tr:nth-child(even) {
+  background-color: #ccc;
+}
+.listProducts-content-row:hover {
+  background-color: rgb(162, 161, 218);
+}
 .listProducts-heading-add-product {
   padding: 0 4px;
   background-color: #996666;
@@ -62,7 +67,23 @@
   align-items: center;
   cursor: pointer;
 }
-
+.Modal {
+  position: absolute;
+  top: 10px;
+  left: 20px;
+  right: 20px;
+  bottom: 20px;
+  background-color: white;
+  border-radius: 6px;
+}
+.Overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.05);
+}
 .listProducts-heading-info-name {
 }
 .listProducts-heading-info-img {
@@ -178,4 +199,33 @@
   /* Chrome, Firefox, Opera, Safari 10.1+ */
   color: black;
   opacity: 1; /* Firefox */
+}
+
+/* modal */
+.modal-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 4px 6px;
+  cursor: pointer;
+}
+.input-container {
+  display: flex;
+  align-items: center;
+  /* justify-content: center; */
+  padding-left: 100px;
+  margin: 16px 0;
+}
+.input-label {
+  min-width: 92px;
+  text-align: left;
+  font-size: 18px;
+}
+.input-box {
+  /* flex: 1; */
+  padding: 4px 6px;
+  font-size: 14px;
+}
+.input-box-submit {
+  margin-bottom: 100px;
 }

@@ -23,7 +23,7 @@ const ListProducts = () => {
   };
   return (
     <>
-      <Filter />
+      {/* <Filter /> */}
       <div className="listProducts-heading">
         <h3 className="listProducts-heading-title">Danh sách sản phẩm</h3>
 
@@ -56,14 +56,12 @@ const ListProducts = () => {
               <th className="listProducts-content-row-heading">STT</th>
               <th className="listProducts-content-row-heading">Tên sản phẩm</th>
               <th className="listProducts-content-row-heading">
-                Tên thương hiệu
+                Kiểu sản phẩm
               </th>
               <th className="listProducts-content-row-heading">Số lượng còn</th>
-              <th className="listProducts-content-row-heading">
-                Số lượng đã bán
-              </th>
+              <th className="listProducts-content-row-heading">Mô tả</th>
               <th className="listProducts-content-row-heading">Giá</th>
-              <th className="listProducts-content-row-heading"> </th>
+              <th className="listProducts-content-row-heading"></th>
               <th className="listProducts-content-row-heading">
                 <button className="listProducts-content-row-remove">
                   <i className="fas fa-trash"></i>
