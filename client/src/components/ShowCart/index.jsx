@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from "react";
 import "./index.css";
 import ProductInCart from "../ProductInCart";
 import ShopContext from "../ShopContext";
+import {Link} from 'react-router-dom';
 
 const ShowCart = () => {
 
@@ -71,7 +72,9 @@ const ShowCart = () => {
               </div>
             }
           </div>
+          <Link to="/payment">
           <button className="cart-payment-button">PAYMENT</button>
+          </Link>
         </div>
       </div>
     </>
