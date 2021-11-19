@@ -1,19 +1,32 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose')
 
-const Schema = mongoose.Schema;
+const Schema = mongoose.Schema
 const OrderSchema = new Schema({
   OrderItems: [
     {
       name: { type: String, required: true },
-      count: { type: Number, required: true },
+      quantity: { type: Number, required: true },
       price: { type: Number, required: true },
       product: {
         type: mongoose.Schema.Types.ObjectId,
         required: true,
-        ref: "Product",
+        ref: 'Product',
       },
     },
   ],
+  userName: {
+    type: String,
+    required: true,
+  },
+  phone: {
+    type: String,
+  },
+  address: {
+    type: String,
+  },
+  tableseat: {
+    type: String,
+  },
   usingMethod: {
     type: String,
     required: true,
@@ -39,6 +52,6 @@ const OrderSchema = new Schema({
   deliveredAt: {
     type: Date,
   },
-});
+})
 
-module.exports = mongoose.model("Order", OrderSchema);
+module.exports = mongoose.model('Order', OrderSchema)
