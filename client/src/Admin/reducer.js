@@ -5,6 +5,7 @@ import {
   GET_TYPE_PRODUCT,
   UPDATE_PRODUCT,
   ADD_PRODUCT,
+  LOADED,
 } from "./constant";
 
 const reducer = (state, action) => {
@@ -42,6 +43,11 @@ const reducer = (state, action) => {
       return {
         ...state,
         products: [...state.products, payload],
+      };
+    case LOADED:
+      return {
+        ...state,
+        isLoading: false,
       };
     default:
       return state;

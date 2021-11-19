@@ -4,3 +4,4 @@ export const SET_TYPE_PRODUCT = "set_type_product";
 export const GET_TYPE_PRODUCT = "get_type_product";
 export const UPDATE_PRODUCT = "update_product";
 export const ADD_PRODUCT = "add_product";
+export const LOADED = "loaded";

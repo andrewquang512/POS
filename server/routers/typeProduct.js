@@ -2,6 +2,32 @@ const express = require("express");
 const router = express.Router();
 const TypeProduct = require("../model/TypeProduct");
 
+const multer = require("multer");
+
+const fileFilter = (req, file, cb) => {
+  if (file.mimetype === "image/jpeg" || file.mimetype === "image/png") {
+    cb(null, true);
+  } else {
+    cb("JPEG and PNG only supported", false);
+  }
+};
+
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, "./uploads/");
+  },
+  filename: function (req, file, cb) {
+    cb(null, new Date().toISOString().replace(/:/g, "-") + file.originalname);
+  },
+});
+const upload = multer({
+  storage: storage,
+  limts: {
+    fileSize: 1024 * 1024 * 5,
+  },
+  fileFilter: fileFilter,
+});
+
 // GET http://localhost:5000/api/typeproduct
 // Lay all product
 router.get("/", async (req, res) => {
@@ -16,9 +42,9 @@ router.get("/", async (req, res) => {
 
 // POST http://localhost:5000/api/typeproduct
 // Gui type product len server
-router.post("/", async (req, res) => {
+router.post("/", upload.single("img"), async (req, res) => {
   try {
-    const { name, img } = req.body;
+    const { name } = req.body;
     // Check name
     if (!name)
       return res
@@ -27,7 +53,7 @@ router.post("/", async (req, res) => {
     // All good
     const newTypeProduct = new TypeProduct({
       name,
-      img,
+      img: `http://localhost:5000/${req.file.path}`,
     });
     await newTypeProduct.save();
     res.send({

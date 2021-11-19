@@ -4,9 +4,14 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { adminContext } from "../AdminContext";
+import TypeModal from "./TypeModal";
 
 const Filter = ({ x }) => {
-  const [selected, setSelected] = useState(-1);
+  const openModal = useRef();
+  const [openPlease, setOpenPlease] = useState(false);
+  const { isLoading } = useContext(adminContext);
+  const [selected, setSelected] = useState(0);
+  console.log(selected);
   const ref = useRef({});
 
   const next = () => {
@@ -16,7 +21,8 @@ const Filter = ({ x }) => {
   const previous = () => {
     ref.current.slickPrev();
   };
-
+  // let xy = "loading";
+  // if (!isLoading) xy = <TypeModal index={0} />;
   const settings = {
     className: "section-outstanding__slider hoangkui-css-filter",
     slidesToShow: 4,
@@ -53,6 +59,9 @@ const Filter = ({ x }) => {
   // const [types, setTypes] = useState(Types);
   const { typeProducts } = useContext(adminContext);
   console.log("vcccc", typeProducts);
+  useEffect(() => {
+    console.log(openModal.current);
+  }, [selected]);
   return (
     <>
       <div className="backtohome">
@@ -68,23 +77,32 @@ const Filter = ({ x }) => {
       {/* <ul className="filter-list"> */}
       <Slider ref={ref} {...settings}>
         <FoodFilter
-          // handleOneSelected={handleOneSelected}
-          // selected={selected}
+          handleOneSelected={handleOneSelected}
+          selected={selected}
+          index={0}
           // key={-1}
           // name="Tất cả món"
           // id={-1}
-          typeProduct={{ _id: -1, name: "Tất cả món", img: "none" }}
+          typeProduct={{
+            _id: -1,
+            name: "Tất cả món",
+            img: "http://localhost:3000/image/FoodsType/ALL.jpg",
+          }}
           // x_value={x}
         />
-        {typeProducts.map((typeProduct) => {
+        {typeProducts.map((typeProduct, index) => {
           return (
-            <FoodFilter
-              // handleOneSelected={handleOneSelected}
-              // selected={selected}
-              // className={}
-              typeProduct={typeProduct}
-              // x_value={x}
-            />
+            <>
+              <FoodFilter
+                index={index}
+                setSelected={setSelected}
+                // handleOneSelected={handleOneSelected}
+                // selected={selected}
+                // className={}
+                typeProduct={typeProduct}
+                // x_value={x}
+              />
+            </>
           );
         })}
       </Slider>
@@ -92,6 +110,8 @@ const Filter = ({ x }) => {
       <div className="button-filter button-next">
         <div onClick={next} className="arrow-right-food arrow-food"></div>
       </div>
+      {isLoading || <TypeModal ref={openModal} index={selected} />}
+      {/* {xy} */}
     </>
   );
 };
