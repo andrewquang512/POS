@@ -1,9 +1,25 @@
 import axios from "axios";
 import React, { useContext, useRef, useState } from "react";
 import { adminContext } from "../AdminContext";
-import FileBase from "react-file-base64";
-
+import swal from "sweetalert";
+import Modal from "react-modal";
+import { customStyles } from "./SingleProduct";
+import ButtonUpload from "../ButtonUpload";
 const AddModal = () => {
+  const [modalIsOpen, setIsOpen] = useState(false);
+  let subtitle;
+
+  function openModal() {
+    setIsOpen(true);
+  }
+  function afterOpenModal() {
+    // references are now sync'd and can be accessed.
+    subtitle.style.color = "#f00";
+  }
+  function closeModal() {
+    setIsOpen(false);
+  }
+
   const { typeProducts, addProduct } = useContext(adminContext);
   // const fileInput = React.createRef();
   const [newProduct, setNewProduct] = useState({
@@ -42,7 +58,7 @@ const AddModal = () => {
     // const productAdd = {
     //   ...newProduct,
     // };
-    // console.log(data);
+    console.log(newProduct);
     addProduct(data);
     // axios
     //   .post("http://localhost:5000/api/product", newProduct)
@@ -51,73 +67,120 @@ const AddModal = () => {
     // axios.post("http://localhost:3000/")
   };
   return (
-    <div className="modal-content-hoangkui">
-      <div className="input-container">
-        <form
-          // action="http://localhost:5000/api/product"
-          // method="POST"
-          onSubmit={handleSubmitForm}
-          encType="multipart/form-data"
-        >
+    <>
+      <button onClick={openModal} className="listProducts-heading-add-product">
+        <i className="fas fa-plus"></i>
+        Thêm sản phẩm
+      </button>
+      <Modal
+        // style={{ width: 600 }}
+        // className="Modal"
+        // overlayClassName="Overlay"
+        isOpen={modalIsOpen}
+        onAfterOpen={afterOpenModal}
+        onRequestClose={closeModal}
+        style={customStyles}
+        contentLabel="Example Modal"
+      >
+        <h2 ref={(_subtitle) => (subtitle = _subtitle)}>Thêm sản phẩm</h2>
+        <button className="modal-close" onClick={closeModal}>
+          close
+        </button>
+        <form className="content-center" onSubmit={handleSubmitForm}>
+          <div className="input-container-wrap">
+            <div className="input-container-both">
+              <div className="input-container input-container-img">
+                <ButtonUpload
+                  text="Chọn ảnh"
+                  src={img}
+                  setProductUpdate={setNewProduct}
+                  productUpdate={newProduct}
+                />
+              </div>
+            </div>
+            <div className="input-container-both">
+              <div className="input-container">
+                <label htmlFor="" className="input-label">
+                  Tên
+                </label>
+                <input
+                  className="input-box"
+                  onChange={onChangeInputProduct}
+                  type="text"
+                  name="name"
+                  value={name}
+                  id=""
+                />
+              </div>
+              <div className="input-container">
+                <label htmlFor="" className="input-label">
+                  Số lượng
+                </label>
+                <select
+                  required
+                  className="input-box"
+                  name="catelory"
+                  value={catelory}
+                  onChange={onChangeInputProduct}
+                >
+                  <option value="" selected disabled hidden>
+                    Choose here
+                  </option>
+                  {typeProducts.map((typeProduct, index) => (
+                    <option value={typeProduct._id}>{typeProduct.name}</option>
+                  ))}
+                </select>
+              </div>
+              <div className="input-container">
+                <label htmlFor="" className="input-label">
+                  Giá
+                </label>
+                <input
+                  className="input-box"
+                  onChange={onChangeInputProduct}
+                  type="text"
+                  name="price"
+                  value={price}
+                  id=""
+                />
+              </div>
+              <div className="input-container">
+                <label htmlFor="" className="input-label">
+                  Số lượng
+                </label>
+                <input
+                  className="input-box"
+                  onChange={onChangeInputProduct}
+                  type="text"
+                  name="count"
+                  value={count}
+                  id=""
+                />
+              </div>
+              <div className="input-container">
+                <label htmlFor="" className="input-label">
+                  Mô tả
+                </label>
+                <textarea
+                  type="text"
+                  name="description"
+                  className="input-box input-box-textarea"
+                  value={description}
+                  onChange={onChangeInputProduct}
+                  id=""
+                />
+              </div>
+            </div>
+          </div>
           <input
-            type="text"
-            name="name"
-            value={name}
-            onChange={onChangeInputProduct}
-            className="input-item"
-            placeholder="Nhập tên sản phẩm"
+            className="input-box input-box-submit"
+            type="submit"
+            value="Lưu lại"
           />
-          <select
-            name="catelory"
-            value={catelory}
-            onChange={onChangeInputProduct}
-          >
-            {typeProducts.map((typeProduct, index) => (
-              <option value={typeProduct._id}>{typeProduct.name}</option>
-            ))}
-          </select>
-          <input
-            type="number"
-            name="count"
-            value={count}
-            onChange={onChangeInputProduct}
-            className="input-item"
-            placeholder="Nhập số lượng"
-          />
-          <textarea
-            id="description"
-            name="description"
-            rows="4"
-            value={description}
-            onChange={onChangeInputProduct}
-            cols="50"
-            placeholder="Nhập mô tả"
-          />
-          <input
-            type="number"
-            name="price"
-            value={price}
-            onChange={onChangeInputProduct}
-            className="input-item"
-            placeholder="Nhập giá"
-          />{" "}
-          {/* <FileBase
-            type="file"
-            multiple={false}
-            onDone={({ base64 }) =>
-              setNewProduct({ ...newProduct, img: base64 })
-            }
-          /> */}
-          <input
-            type="file"
-            name="img"
-            accept="image/*"
-            onChange={onChangeAva}
-          />
-          <input type="submit" value="Submit"></input>
+          {/* <button>the modal</button> */}
         </form>
-      </div>
-    </div>
+      </Modal>
+    </>
   );
 };
 

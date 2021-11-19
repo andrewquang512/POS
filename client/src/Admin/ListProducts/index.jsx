@@ -12,15 +12,6 @@ const ListProducts = () => {
   const { products, getProducts } = useContext(adminContext);
   useEffect(() => getProducts(), []);
 
-  const openModalAdd = () => {
-    var modal = document.querySelector(".modal-hoangkui-add");
-    modal.style.display = "block";
-    window.onclick = function (e) {
-      if (e.target === modal) {
-        modal.style.display = "none";
-      }
-    };
-  };
   return (
     <>
       {/* <Filter /> */}
@@ -35,13 +26,14 @@ const ListProducts = () => {
           />
           <i className="fas fa-search"></i>
         </div>
-        <button
+        {/* <button
           onClick={openModalAdd}
           className="listProducts-heading-add-product"
         >
           <i className="fas fa-plus"></i>
           Thêm sản phẩm
-        </button>
+        </button> */}
+        <AddModal />
       </div>
       <div className="listProducts-content">
         <table className="listProducts-content-table">
@@ -85,7 +77,7 @@ const ListProducts = () => {
       </div>
 
       <div className="modal-hoangkui-add modal-hoangkui">
-        <AddModal />
+        {/* <AddModal /> */}
       </div>
     </>
   );
