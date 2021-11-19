@@ -5,16 +5,18 @@ import Filter from "../Header/Filter";
 // import Products from "../../Products";
 import "../index-hoangkui.css";
 import AddModal from "./AddModal";
+import AddType from "./AddType";
 import SingleProduct from "./SingleProduct";
 
 // import { useHistory } from "react-router-dom";
 const ListProducts = () => {
-  const { products, getProducts } = useContext(adminContext);
+  const { products, getProducts, isLoading } = useContext(adminContext);
   useEffect(() => getProducts(), []);
-
+  let filter = "loading";
+  if (!isLoading) filter = <Filter />;
   return (
     <>
-      {/* <Filter /> */}
+      {filter}
       <div className="listProducts-heading">
         <h3 className="listProducts-heading-title">Danh sách sản phẩm</h3>
 
@@ -33,6 +35,7 @@ const ListProducts = () => {
           <i className="fas fa-plus"></i>
           Thêm sản phẩm
         </button> */}
+        <AddType />
         <AddModal />
       </div>
       <div className="listProducts-content">

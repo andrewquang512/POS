@@ -260,6 +260,7 @@ tr:nth-child(even) {
 .input-container-wrap {
   display: flex;
   justify-content: space-around;
+  align-items: center;
 }
 .input-container-img {
   display: flex;

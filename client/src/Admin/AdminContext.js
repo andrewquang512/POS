@@ -7,6 +7,7 @@ import {
   UPDATE_PRODUCT,
   GET_TYPE_PRODUCT,
   ADD_PRODUCT,
+  LOADED,
 } from "./constant";
 export const adminContext = createContext();
 
@@ -14,8 +15,9 @@ const AdminProvider = ({ children }) => {
   const [stateAdmin, dispatch] = useReducer(reducer, {
     products: [],
     typeProducts: [],
+    isLoading: true,
   });
-  const { products, typeProducts } = stateAdmin;
+  const { products, typeProducts, isLoading } = stateAdmin;
   const getProducts = async () => {
     try {
       const response = await axios.get("http://localhost:5000/api/product");
@@ -63,6 +65,10 @@ const AdminProvider = ({ children }) => {
           type: GET_TYPE_PRODUCT,
           payload: res.data.typeProducts,
         });
+        dispatch({
+          type: LOADED,
+          payload: true,
+        });
         // return res.data.typeProduct;
       }
     } catch (error) {
@@ -105,6 +111,9 @@ const AdminProvider = ({ children }) => {
   const getProductForIndex = (index) => {
     return products[index];
   };
+  const getTypeProductForIndex = (index) => {
+    return typeProducts[index];
+  };
   const updateProduct = async (id, dataForm) => {
     try {
       const res = await axios.put(
@@ -125,7 +134,19 @@ const AdminProvider = ({ children }) => {
       console.log(error);
     }
   };
+  const addTypeProduct = async (dataForm) => {
+    try {
+      const res = await axios.post(
+        `http://localhost:5000/api/typeproduct`,
+        dataForm
+      );
+      if (res.data.success) {
+        getTypeProducts();
+      }
+    } catch (error) {}
+  };
   const adminValue = {
+    isLoading,
     products,
     typeProducts,
     getProducts,
@@ -134,7 +155,9 @@ const AdminProvider = ({ children }) => {
     addProduct,
     removeProduct,
     getProductForIndex,
+    getTypeProductForIndex,
     updateProduct,
+    addTypeProduct,
   };
   return (
     <adminContext.Provider value={adminValue}>{children}</adminContext.Provider>
