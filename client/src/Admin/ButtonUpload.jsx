@@ -1,15 +1,37 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
-const ButtonUpload = ({ text, src }) => {
+const ButtonUpload = ({
+  isDisable,
+  text,
+  src,
+  setProductUpdate,
+  productUpdate,
+}) => {
   const fileInputRef = useRef();
-
+  const [imgPreview, setImgPreview] = useState({
+    init: true,
+    preview: src,
+  });
   const handleChange = (e) => {
     // do something with event data
+    setImgPreview({
+      preview: URL.createObjectURL(e.target.files[0]),
+      init: false,
+    });
+    setProductUpdate({
+      ...productUpdate,
+      img: e.target.files[0],
+    });
   };
-
+  useEffect(() => {
+    return () => {
+      if (!imgPreview.init) URL.revokeObjectURL(imgPreview.preview);
+    };
+  }, [imgPreview]);
   return (
     <>
       <button
+        style={{ display: isDisable ? "none" : "inline-flex" }}
         className="button-upload"
         onClick={() => fileInputRef.current.click()}
       >
@@ -22,7 +44,7 @@ const ButtonUpload = ({ text, src }) => {
         type="file"
         hidden
       />
-      <img src={src} alt="" className="button-upload-preview" />
+      <img src={imgPreview.preview} alt="" className="button-upload-preview" />
     </>
   );
 };

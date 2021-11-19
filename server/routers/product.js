@@ -88,8 +88,8 @@ router.post("/", upload.single("img"), async (req, res) => {
 });
 // PUT http://localhost:5000/api/product/id
 // Update data len server
-router.put("/:id", async (req, res) => {
-  const { name, catelory, price, count, description, img } = req.body;
+router.put("/:id", upload.single("img"), async (req, res) => {
+  const { name, catelory, price, count, description } = req.body;
   // Check name
   if (!name)
     return res
@@ -105,7 +105,7 @@ router.put("/:id", async (req, res) => {
       price,
       count,
       description,
-      img,
+      img: req.file ? `http://localhost:5000/${req.file.path}` : req.body.img,
     };
     const conditionUpdated = { _id: req.params.id };
     updateProduct = await Product.findOneAndUpdate(

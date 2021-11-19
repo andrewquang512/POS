@@ -3,6 +3,8 @@ import {
   PRODUCT_LOAD_SUCCESS,
   SET_TYPE_PRODUCT,
   GET_TYPE_PRODUCT,
+  UPDATE_PRODUCT,
+  ADD_PRODUCT,
 } from "./constant";
 
 const reducer = (state, action) => {
@@ -26,7 +28,21 @@ const reducer = (state, action) => {
         ...state,
         // products: [...state.products, newProduct],
       };
-
+    case UPDATE_PRODUCT:
+      const indexUpdate = state.products.findIndex(
+        (product) => product._id === payload.id
+      );
+      const productsUpdate = [...state.products];
+      productsUpdate[indexUpdate] = payload.product;
+      return {
+        ...state,
+        products: productsUpdate,
+      };
+    case ADD_PRODUCT:
+      return {
+        ...state,
+        products: [...state.products, payload],
+      };
     default:
       return state;
   }

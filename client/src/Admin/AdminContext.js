@@ -4,7 +4,9 @@ import axios from "axios";
 import {
   PRODUCT_LOAD_SUCCESS,
   SET_TYPE_PRODUCT,
+  UPDATE_PRODUCT,
   GET_TYPE_PRODUCT,
+  ADD_PRODUCT,
 } from "./constant";
 export const adminContext = createContext();
 
@@ -40,7 +42,13 @@ const AdminProvider = ({ children }) => {
         "http://localhost:5000/api/product",
         newProduct
       );
-
+      if (res.data.success) {
+        dispatch({
+          type: ADD_PRODUCT,
+          payload: res.data.product,
+        });
+        getTypeProduct(res.data.product);
+      }
       // console.log(res);
     } catch (error) {
       console.log(error);
@@ -94,6 +102,29 @@ const AdminProvider = ({ children }) => {
       console.log(error);
     }
   };
+  const getProductForIndex = (index) => {
+    return products[index];
+  };
+  const updateProduct = async (id, dataForm) => {
+    try {
+      const res = await axios.put(
+        `http://localhost:5000/api/product/${id}`,
+        dataForm
+      );
+      if (res.data.success) {
+        dispatch({
+          type: UPDATE_PRODUCT,
+          payload: {
+            id,
+            product: res.data.product,
+          },
+        });
+        getTypeProduct(res.data.product);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
   const adminValue = {
     products,
     typeProducts,
@@ -102,6 +133,8 @@ const AdminProvider = ({ children }) => {
     getTypeProducts,
     addProduct,
     removeProduct,
+    getProductForIndex,
+    updateProduct,
   };
   return (
     <adminContext.Provider value={adminValue}>{children}</adminContext.Provider>
