@@ -3,7 +3,6 @@ import { React, useState } from 'react'
 // import Button from 'react-bootstrap/button'
 import { Form, Card, Row, Col } from 'react-bootstrap'
 import MethodModal from './Modal/Modal'
-import '../../bootstrap.min.css'
 import './index.css'
 
 const Payment = () => {
@@ -19,21 +18,15 @@ const Payment = () => {
       {ModalOpened ? (
         <MethodModal isOpened={ModalOpened} onChooseMethod={setMethod} />
       ) : usingMethod === 'direct' ? (
-        <Form className='mt-5'>
+        <Form>
           <Row>
             <Col xs={3}></Col>
             <Col xs={6}>
-              <Form.Group
-                className='mb-3'
-                controlId='exampleForm.ControlInput1'
-              >
+              <Form.Group controlId='exampleForm.ControlInput1'>
                 <Form.Label>Tên</Form.Label>
                 <Form.Control type='text' placeholder='Nguyễn Văn A' />
               </Form.Group>
-              <Form.Group
-                className='mb-3'
-                controlId='exampleForm.ControlTextarea1'
-              >
+              <Form.Group controlId='exampleForm.ControlTextarea1'>
                 <Form.Label>Số bàn</Form.Label>
                 <Form.Control as='select'>
                   <option>Open this select menu</option>
