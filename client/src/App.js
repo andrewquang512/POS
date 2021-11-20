@@ -10,6 +10,8 @@ import TypeProducts from './components/TypeProducts'
 import ShowInforLine from './components/ShowInforLine'
 import Payment from './components/Payment/Payment'
 import Admin from './Admin'
+import Revenue from './Admin/Revenue/Revenue'
+
 function App() {
   const [idType, setIdType] = useState(-1)
   function ChangeForIdType(id) {
@@ -29,6 +31,7 @@ function App() {
           </Route>
           <Route path='/payment' component={Payment} />
           <Route path='/admin' component={Admin} />
+          <Route path='/revenue' component={Revenue} />
         </Switch>
       </Router>
     </>

@@ -12,6 +12,7 @@ const OrderSchema = new Schema({
         required: true,
         ref: 'Product',
       },
+      img: {type: String},
     },
   ],
   userName: {

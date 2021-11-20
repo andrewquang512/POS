@@ -4,6 +4,7 @@ const connectDB = require("./config/db");
 const productRouter = require("./routers/product");
 const typeProductRouter = require("./routers/typeProduct");
 const orderRoutes = require("./routers/orderRoutes");
+const revenueRoutes = require("./routers/revenueRouter");
 // const fileUpload = require("express-fileupload");
 const app = express();
 
@@ -22,6 +23,7 @@ app.use("/uploads", express.static("uploads"));
 app.use("/api/product/", productRouter);
 app.use("/api/typeproduct/", typeProductRouter);
 app.use("/api/orders", orderRoutes);
+app.use("/revenue", revenueRoutes);
 // app.get("/", (req, res) => res.send("Hello all!"));
 
 const PORT = 5000;
