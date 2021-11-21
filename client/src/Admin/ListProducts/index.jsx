@@ -1,8 +1,8 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { adminContext } from "../AdminContext";
 import Filter from "../Header/Filter";
-// import Product from "./Product";
-// import Products from "../../Products";
+import swal from "sweetalert";
+
 import "../index-hoangkui.css";
 import AddModal from "./AddModal";
 import AddType from "./AddType";
@@ -10,24 +10,75 @@ import SingleProduct from "./SingleProduct";
 
 // import { useHistory } from "react-router-dom";
 const ListProducts = () => {
-  const { products, getProducts, isLoading } = useContext(adminContext);
-  useEffect(() => getProducts(), []);
-  let filter = "loading";
-  if (!isLoading) filter = <Filter />;
+  const {
+    products,
+    getProducts,
+    removeProduct,
+    getTypeProducts,
+    isLoading,
+    typeProducts,
+    removeTypeProduct,
+  } = useContext(adminContext);
+  useEffect(() => {
+    getProducts();
+    getTypeProducts();
+  }, []);
+  const [selectFilter, setSelectFilter] = useState(-1);
+  // if (!isLoading) filter = <Filter />;
+  const handleRemoveType = () => {
+    swal({
+      title: "Are you sure?",
+      text: "Bạn sẽ xóa luôn tất cả các sản phẩm ở dưới?",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    }).then((willDelete) => {
+      if (willDelete) {
+        products.map((product) => {
+          if (product.catelory === typeProducts[selectFilter]._id) {
+            removeProduct(product._id);
+          }
+        });
+        removeTypeProduct(typeProducts[selectFilter]._id);
+        setSelectFilter(-1);
+        swal("Xóa thành công", {
+          icon: "success",
+        });
+      }
+    });
+  };
+  console.log("??????", typeProducts, isLoading, products);
   return (
     <>
-      {filter}
+      {/* {filter} */}
       <div className="listProducts-heading">
-        <h3 className="listProducts-heading-title">Danh sách sản phẩm</h3>
+        {/* <h3 className="listProducts-heading-title">Danh sách sản phẩm</h3> */}
 
-        <div className="listProducts-heading-wrap-search">
-          <input
-            type="text"
-            className="listProducts-heading-search"
-            placeholder="Tìm kiếm sản phẩm và thương hiệu"
-          />
-          <i className="fas fa-search"></i>
-        </div>
+        {false || (
+          <div className="">
+            <button
+              onClick={() => setSelectFilter(-1)}
+              className="button-filter-food"
+              style={selectFilter === -1 ? { backgroundColor: "red" } : {}}
+            >
+              All
+            </button>
+            {typeProducts.map((typeProduct, index) => {
+              return (
+                <button
+                  key={index}
+                  onClick={() => setSelectFilter(index)}
+                  style={
+                    selectFilter === index ? { backgroundColor: "red" } : {}
+                  }
+                  className="button-filter-food"
+                >
+                  {typeProduct.name}
+                </button>
+              );
+            })}
+          </div>
+        )}
         {/* <button
           onClick={openModalAdd}
           className="listProducts-heading-add-product"
@@ -36,6 +87,14 @@ const ListProducts = () => {
           Thêm sản phẩm
         </button> */}
         <AddType />
+        {selectFilter > -1 && (
+          <button
+            onClick={handleRemoveType}
+            className="listProducts-heading-add-product"
+          >
+            Xóa loại này
+          </button>
+        )}
         <AddModal />
       </div>
       <div className="listProducts-content">
@@ -64,9 +123,12 @@ const ListProducts = () => {
               </th>
             </tr>
 
-            {products.map((product, index) => (
-              <SingleProduct product={product} index={index} />
-            ))}
+            {products.map((product, index) => {
+              if (selectFilter === -1) {
+                return <SingleProduct product={product} index={index} />;
+              } else if (product.catelory === typeProducts[selectFilter]._id)
+                return <SingleProduct product={product} index={index} />;
+            })}
           </tbody>
         </table>
         <div className="listProducts-page">

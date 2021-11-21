@@ -208,6 +208,14 @@ tr:nth-child(even) {
   right: 0;
   padding: 4px 6px;
   cursor: pointer;
+  outline: none;
+  border: none;
+  background-color: white;
+  zoom: 1.5;
+  color: rgb(194, 194, 194);
+}
+.modal-close:hover {
+  color: black;
 }
 .input-container {
   display: flex;
@@ -225,10 +233,20 @@ tr:nth-child(even) {
   /* flex: 1; */
   padding: 4px 6px;
   font-size: 14px;
+  border: 1px solid #ccc;
 }
 .input-box-submit {
-  margin-bottom: 100px;
+  /* margin-bottom: 100px; */
   cursor: pointer;
+  text-align: center;
+  width: 100%;
+  padding: 9px 12px;
+  color: white;
+  background: #24e112;
+  font-size: 18px;
+}
+.input-box-submit:hover {
+  opacity: 0.9;
 }
 .input-box-textarea {
   resize: none;
@@ -265,4 +283,18 @@ tr:nth-child(even) {
 .input-container-img {
   display: flex;
   flex-direction: column;
+}
+.button-filter-food {
+  padding: 4px 6px;
+  /* color: #333; */
+  margin: 0 6px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: #ccc;
+  color: #fff;
+}
+.button-filter-food:hover {
+  background-color: #fff;
+  color: #ccc;
 }

@@ -14,7 +14,7 @@ const AddType = () => {
   }
   function afterOpenModal() {
     // references are now sync'd and can be accessed.
-    subtitle.style.color = "#f00";
+    subtitle.style.color = "#333";
   }
   function closeModal() {
     setIsOpen(false);
@@ -52,6 +52,12 @@ const AddType = () => {
     // };
     console.log(newProduct);
     addTypeProduct(data);
+    closeModal();
+    swal(
+      "Thành công",
+      `Đã thêm thành công loại ${newProduct.name} `,
+      "success"
+    );
     // axios
     //   .post("http://localhost:5000/api/product", newProduct)
     //   .then((res) => console.log(res))
@@ -76,7 +82,7 @@ const AddType = () => {
       >
         <h2 ref={(_subtitle) => (subtitle = _subtitle)}>Thêm loại sản phẩm</h2>
         <button className="modal-close" onClick={closeModal}>
-          close
+          x
         </button>
         <form className="content-center" onSubmit={handleSubmitForm}>
           <div className="input-container-wrap">
@@ -109,7 +115,7 @@ const AddType = () => {
           <input
             className="input-box input-box-submit"
             type="submit"
-            value="Lưu lại"
+            value="Thêm"
           />
           {/* <button>the modal</button> */}
         </form>

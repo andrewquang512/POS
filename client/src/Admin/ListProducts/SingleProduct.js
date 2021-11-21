@@ -37,7 +37,7 @@ const SingleProduct = ({ product, index }) => {
   }
   function afterOpenModal() {
     // references are now sync'd and can be accessed.
-    subtitle.style.color = "#f00";
+    subtitle.style.color = "#333";
   }
   function closeModal() {
     setIsOpen(false);
@@ -75,6 +75,8 @@ const SingleProduct = ({ product, index }) => {
     dataForm.append("description", productUpdate.description);
     dataForm.append("img", productUpdate.img);
     updateProduct(productUpdate._id, dataForm);
+    closeModal();
+    swal("Sửa thành công", "", "success");
   };
   return (
     <>
@@ -137,7 +139,7 @@ const SingleProduct = ({ product, index }) => {
           {isDisable ? "Thông tin sản phẩm" : "Chế độ chỉnh sửa"}
         </h2>
         <button className="modal-close" onClick={closeModal}>
-          close
+          x
         </button>
         <form className="content-center" onSubmit={handleUpdate}>
           <div className="input-container-wrap">
@@ -231,7 +233,7 @@ const SingleProduct = ({ product, index }) => {
             style={{ display: isDisable ? "none" : "block" }}
             className="input-box input-box-submit"
             type="submit"
-            value="Lưu lại"
+            value="Lưu"
           />
           {/* <button>the modal</button> */}
         </form>

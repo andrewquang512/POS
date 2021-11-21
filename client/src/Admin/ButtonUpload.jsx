@@ -44,7 +44,11 @@ const ButtonUpload = ({
         type="file"
         hidden
       />
-      <img src={imgPreview.preview} alt="" className="button-upload-preview" />
+      <img
+        src={imgPreview.preview}
+        alt="Ảnh xem trước"
+        className="button-upload-preview"
+      />
     </>
   );
 };

@@ -14,7 +14,7 @@ const AddModal = () => {
   }
   function afterOpenModal() {
     // references are now sync'd and can be accessed.
-    subtitle.style.color = "#f00";
+    subtitle.style.color = "#333";
   }
   function closeModal() {
     setIsOpen(false);
@@ -47,6 +47,21 @@ const AddModal = () => {
   // console.log(newProduct);
   const handleSubmitForm = (e) => {
     e.preventDefault();
+    if (
+      newProduct.img === "" ||
+      newProduct.name === "" ||
+      newProduct.catelory === "" ||
+      newProduct.description === "" ||
+      newProduct.price === 0 ||
+      newProduct.count === 0
+    ) {
+      swal(
+        "Điền đúng hộ mình",
+        "Bạn cần điền đầy đủ hoặc chính xác thông tin",
+        "warning"
+      );
+      return;
+    }
     const data = new FormData();
     data.append("img", newProduct.img);
     data.append("name", newProduct.name);
@@ -84,7 +99,7 @@ const AddModal = () => {
       >
         <h2 ref={(_subtitle) => (subtitle = _subtitle)}>Thêm sản phẩm</h2>
         <button className="modal-close" onClick={closeModal}>
-          close
+          x
         </button>
         <form className="content-center" onSubmit={handleSubmitForm}>
           <div className="input-container-wrap">
@@ -175,7 +190,7 @@ const AddModal = () => {
           <input
             className="input-box input-box-submit"
             type="submit"
-            value="Lưu lại"
+            value="Thêm"
           />
           {/* <button>the modal</button> */}
         </form>

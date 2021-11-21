@@ -108,6 +108,19 @@ const AdminProvider = ({ children }) => {
       console.log(error);
     }
   };
+  const removeTypeProduct = async (id) => {
+    try {
+      const res = await axios.delete(
+        `http://localhost:5000/api/typeproduct/${id}`
+      );
+      if (res.data.success) {
+        console.log(res.data.product);
+        getTypeProducts();
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
   const getProductForIndex = (index) => {
     return products[index];
   };
@@ -157,6 +170,7 @@ const AdminProvider = ({ children }) => {
     getProductForIndex,
     getTypeProductForIndex,
     updateProduct,
+    removeTypeProduct,
     addTypeProduct,
   };
   return (
