@@ -117,6 +117,8 @@
   letter-spacing: 0.15em;
   padding: 2px 30px;
   border: outset;
+  color: white;
+  /* height: 50px; */
 }
 .iconManager {
   vertical-align: middle;
