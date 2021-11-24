@@ -116,7 +116,7 @@ export default function Revenue() {
                         Orders.reduce((sum, i) => (
                             sum += i.isPaid ? i.totalPrice : 0
                         ), 0).toLocaleString()
-                    }.000VNĐ</div> 
+                    }.000 VNĐ</div> 
                 </div>
         </div>
         </>

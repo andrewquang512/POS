@@ -78,7 +78,7 @@
 
 /* **************************************ShowList********************************************************************** */
 .showlist {
-  font-size: 9px;
+  font-size: 10px;
   /* background-color: rgba(110, 184, 0.9); */
   background: linear-gradient(
     90deg,
@@ -91,6 +91,7 @@
   border-bottom: groove;
   border-left: groove;
   border-bottom-right-radius: 10px;
+  color: white;
 }
 .panel-content {
   text-align: left;
@@ -237,4 +238,5 @@
   right: 80px;
   top: -15px;
   cursor: pointer;
+  height: 46.52px;
 }
