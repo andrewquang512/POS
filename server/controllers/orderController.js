@@ -4,7 +4,7 @@ const Order = require('../model/Order')
 // @route   POST /api/orders
 // @access  Private
 const addOrderItems = async (req, res) => {
-  const { OrderItems, usingMethod, totalPrice } = req.body
+  const { OrderItems, usingMethod, totalPrice, userName } = req.body
 
   if (OrderItems && OrderItems.length === 0) {
     res.status(400)
@@ -15,6 +15,7 @@ const addOrderItems = async (req, res) => {
       OrderItems,
       usingMethod,
       totalPrice,
+      userName,
     })
 
     const createdOrder = await order.save()

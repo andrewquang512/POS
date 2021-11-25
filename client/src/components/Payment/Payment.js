@@ -1,7 +1,7 @@
 import { React, useState } from 'react'
 import { Form, Button } from 'react-bootstrap'
 import MethodModal from './Modal/Modal'
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useLocation, useHistory } from 'react-router-dom'
 import Cartreview from './CartReview/Cartreview'
 import axios from 'axios'
 import './index.css'
@@ -21,7 +21,7 @@ const Payment = () => {
   const [addresserror, setaddresserror] = useState(false)
   const [numbererror, setnumbererror] = useState(false)
 
-  const [totalprice, settotalprice] = useState(0)
+  const history = useHistory()
   const location = useLocation()
   const { cartcontext } = location.state
   let total = 0
@@ -29,7 +29,9 @@ const Payment = () => {
   cartcontext.map((cartItem, index) => {
     total = total + cartItem.price * cartItem.quantity
   })
-  let OrderItems = []
+  let ordername = name
+  let orderusingMethod = usingMethod
+  let ListItems = []
   cartcontext.forEach(function (a) {
     if (!this[a.name]) {
       this[a.name] = {
@@ -38,15 +40,9 @@ const Payment = () => {
         price: a.price,
         img: a.image,
       }
-      OrderItems.push(this[a.name])
+      ListItems.push(this[a.name])
     }
   }, Object.create(null))
-  const data = {
-    OrderItems: OrderItems,
-    userName: name,
-    usingMethod: usingMethod,
-    totalPrice: total,
-  }
   const setMethod = (value) => {
     setusingMethod(value)
     setModalOpened(false)
@@ -86,21 +82,21 @@ const Payment = () => {
   }
 
   const updateState = () => {
-    if (usingMethod === 'direct') {
-      if (name === '' && table === '') {
-        settableerror(true)
-        setnameerror(true)
+    if (usingMethod === 'Directly') {
+      if (name === '' || table === '' || table === 'Select the table') {
+        if (name === '') setnameerror(true)
+        if (table === '') settableerror(true)
+        if (table === 'Select the table') settableerror(true)
       } else {
-        console.log(data)
+        console.log(table)
         setState(state + 1)
       }
-    } else if (usingMethod === 'away') {
-      if (name === '' && address === '' && number === '') {
-        setaddresserror(true)
-        setnameerror(true)
-        setnumbererror(true)
+    } else if (usingMethod === 'Online') {
+      if (name === '' || address === '' || number === '') {
+        if (name === '') setnameerror(true)
+        if (address === '') setaddresserror(true)
+        if (number === '') setnumbererror(true)
       } else {
-        console.log(data)
         setState(state + 1)
       }
     }
@@ -109,13 +105,17 @@ const Payment = () => {
     setState(state - 1)
   }
   const handleSubmit = async (event) => {
-    console.log('i am here')
     event.preventDefault()
     try {
       await axios
-        .post(`http://localhost:5000/api/orders/`, { data })
+        .post(`http://localhost:5000/api/orders/`, {
+          userName: ordername,
+          usingMethod: orderusingMethod,
+          totalPrice: total,
+          OrderItems: ListItems,
+        })
         .then((res) => {
-          console.log(res)
+          history.push('/')
           console.log(res.data)
         })
         .catch((error) => console.log(error))
@@ -128,7 +128,7 @@ const Payment = () => {
     <div>
       {ModalOpened ? (
         <MethodModal isOpened={ModalOpened} onChooseMethod={setMethod} />
-      ) : usingMethod === 'direct' && state === 1 ? (
+      ) : usingMethod === 'Directly' && state === 1 ? (
         <Form className='form-holder'>
           <div className='form-content'>
             <div className='form-items'>
@@ -180,7 +180,7 @@ const Payment = () => {
             </div>
           </div>
         </Form>
-      ) : usingMethod === 'away' && state === 1 ? (
+      ) : usingMethod === 'Online' && state === 1 ? (
         <Form className='form-holder'>
           <div className='form-content'>
             <div className='form-items'>
@@ -220,10 +220,7 @@ const Payment = () => {
                   </div>
                 ) : null}
               </Form.Group>
-              <Form.Group
-                className='mb-3'
-                controlId='exampleForm.ControlTextarea1'
-              >
+              <Form.Group controlId='exampleForm.ControlTextarea2'>
                 <Form.Label>Số điện thoại</Form.Label>
                 <Form.Control
                   onChange={handlenumberChange}
@@ -254,12 +251,95 @@ const Payment = () => {
             <div className='form-items'>
               <h3>Review your cart</h3>
               <p>Check all the products below.</p>
-              <ul className='cart-list'>
+              <ul className='payment-cart-list'>
                 {cartcontext.map((cartItem, index) => {
-                  // settotalprice(totalprice + cartItem.price * cartItem.quantity)
-                  return <Cartreview item={cartItem} index={index} />
+                  return (
+                    <Cartreview
+                      className='payment-cart-item'
+                      item={cartItem}
+                      index={index}
+                    />
+                  )
                 })}
               </ul>
+              <div className='payment-total-price'>
+                Total Price: {total} .000 Đ
+              </div>
+              <div className='buttons-list'>
+                <Button className='secondary' onClick={backState}>
+                  Back
+                </Button>
+                <Button className='primary' onClick={updateState}>
+                  Next
+                </Button>
+              </div>
+            </div>
+          </div>
+        </Form>
+      ) : state === 3 ? (
+        <Form className='form-holder'>
+          <div className='form-content'>
+            <div className='form-items'>
+              <h3>Review your Order</h3>
+              <p>Check all the information you've filled .</p>
+              {usingMethod === 'Directly' ? (
+                <div>
+                  <div className='payment-review'>
+                    <strong>Customer's name:</strong>
+                    <span>{name}</span>
+                  </div>
+                  <div className='payment-review'>
+                    <strong>Table's number:</strong>
+                    <span>{table}</span>
+                  </div>
+                  <div className='payment-review'>
+                    <strong>Order Items:</strong>
+                    <ul className='payment-cart-list'>
+                      {cartcontext.map((cartItem, index) => {
+                        return (
+                          <Cartreview
+                            className='payment-cart-item'
+                            item={cartItem}
+                            index={index}
+                          />
+                        )
+                      })}
+                    </ul>
+                  </div>
+                </div>
+              ) : usingMethod === 'Online' ? (
+                <div>
+                  <div className='payment-review'>
+                    <strong>Customer's name:</strong>
+                    <span>{name}</span>
+                  </div>
+                  <div className='payment-review'>
+                    <strong>Address:</strong>
+                    <span>{address}</span>
+                  </div>
+                  <div className='payment-review'>
+                    <strong>Phone number:</strong>
+                    <span>{number}</span>
+                  </div>
+                  <div className='payment-review'>
+                    <strong>Order Items:</strong>
+                    <ul className='payment-cart-list'>
+                      {cartcontext.map((cartItem, index) => {
+                        return (
+                          <Cartreview
+                            className='payment-cart-item'
+                            item={cartItem}
+                            index={index}
+                          />
+                        )
+                      })}
+                    </ul>
+                  </div>
+                </div>
+              ) : null}
+              <div className='payment-total-price'>
+                Total Price: {total} .000 Đ
+              </div>
               <div className='buttons-list'>
                 <Button className='secondary' onClick={backState}>
                   Back

@@ -6,10 +6,10 @@ import Card from 'react-bootstrap/Card'
 
 const MethodModal = (props) => {
   const chooseDirectMethod = () => {
-    props.onChooseMethod('direct')
+    props.onChooseMethod('Directly')
   }
   const chooseAwayMethod = (e) => {
-    props.onChooseMethod('away')
+    props.onChooseMethod('Online')
   }
   return (
     <Modal show={props.isOpened}>

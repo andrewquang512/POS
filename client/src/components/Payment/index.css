@@ -117,7 +117,7 @@
   border: 0;
   outline: 0;
   border-radius: 6px;
-  background-color: #c0c0c0;
+  background-color: #f0e9e9;
   font-size: 15px;
   font-weight: 300;
   color: #000;
@@ -126,7 +126,12 @@
   margin-top: 16px;
   margin-bottom: 30px;
 }
-
+.form-content input[type='text']::placeholder,
+.form-content input[type='password']::placeholder,
+.form-content input[type='email']::placeholder,
+.form-content select::placeholder {
+  color: #a09c9c;
+}
 .primary {
   background-color: #0288fd;
   border-radius: 20px;
@@ -205,4 +210,44 @@
 .buttons-list {
   display: flex;
   justify-content: space-between;
+}
+
+.payment-cart-list {
+  margin: 0;
+  padding: 0;
+}
+
+.payment-cart-list li div p {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+.payment-cart-list li div div div p {
+  color: #000;
+  text-align: left;
+  font-size: 17px;
+  font-weight: 300;
+  line-height: 20px;
+  margin-bottom: 15px;
+}
+
+.payment-total-price {
+  display: flex;
+  align-items: end;
+  flex-direction: column;
+  margin: 20px 5px 20px 0px;
+  font-size: large;
+  font-weight: bold;
+  color: black;
+}
+
+.payment-review {
+  color: #000;
+  text-align: left;
+  font-size: 17px;
+  font-weight: 300;
+  line-height: 20px;
+  margin-bottom: 30px;
+}
+.payment-review span {
+  margin-left: 20px;
 }
