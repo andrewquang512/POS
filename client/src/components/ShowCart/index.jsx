@@ -72,7 +72,7 @@ const ShowCart = () => {
               </div>
             }
           </div>
-          <Link to="/payment">
+          <Link to={{ pathname: "/payment" , state: {cartcontext :context.cart }}}>
           <button className="cart-payment-button">PAYMENT</button>
           </Link>
         </div>
