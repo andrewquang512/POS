@@ -30,19 +30,19 @@ const ButtonUpload = ({
   }, [imgPreview]);
   return (
     <>
-      <button
+      {/* <button
         style={{ display: isDisable ? "none" : "inline-flex" }}
         className="button-upload"
         onClick={() => fileInputRef.current.click()}
       >
         {text}
-      </button>
+      </button> */}
       <input
         onChange={handleChange}
         multiple={false}
         ref={fileInputRef}
         type="file"
-        hidden
+        hidden={isDisable}
       />
       <img
         src={imgPreview.preview}

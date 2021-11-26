@@ -42,6 +42,12 @@
   width: 50px;
   height: 50px;
 }
+.listProducts-content-row-item-des {
+  width: 660px;
+}
+.listProducts-content-row-item {
+  padding: 0 12px;
+}
 tr:nth-child(even) {
   background-color: #ccc;
 }
@@ -127,9 +133,7 @@ tr:nth-child(even) {
   padding: 4px 8px;
 }
 .listProducts-content-row-remove:hover {
-  /* color:#ff0808; */
-  background-color: #fef5ed;
-  color: #dc3545;
+  opacity: 0.8;
 }
 .listProducts-content-row-remove i {
   /* margin-right: 4px; */
@@ -144,7 +148,7 @@ tr:nth-child(even) {
   padding: 4px 8px;
 }
 .listProducts-content-row-edit:hover {
-  background-color: #f6d7a7;
+  opacity: 0.8;
 }
 .listProducts-content-row-edit i {
   /* margin-right: 4px; */
@@ -160,7 +164,7 @@ tr:nth-child(even) {
   transition: all 0.2 linear;
 }
 .listProducts-page i:hover {
-  color: rgb(22, 74, 156);
+  opacity: 0.8;
 }
 
 .fa-step-backward,
@@ -215,7 +219,7 @@ tr:nth-child(even) {
   color: rgb(194, 194, 194);
 }
 .modal-close:hover {
-  color: black;
+  opacity: 0.8;
 }
 .input-container {
   display: flex;
@@ -295,6 +299,5 @@ tr:nth-child(even) {
   color: #fff;
 }
 .button-filter-food:hover {
-  background-color: #fff;
-  color: #ccc;
+  opacity: 0.8;
 }

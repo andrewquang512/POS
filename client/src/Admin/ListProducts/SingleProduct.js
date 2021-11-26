@@ -81,13 +81,6 @@ const SingleProduct = ({ product, index }) => {
   return (
     <>
       <tr key={index} className="listProducts-content-row">
-        <td className="listProducts-content-row-item">
-          <input
-            disabled={isDisable}
-            type="checkbox"
-            className="listProducts-content-row-checkbox"
-          />
-        </td>
         <td onClick={openModal} className="listProducts-content-row-item">
           {index}
         </td>
@@ -100,11 +93,14 @@ const SingleProduct = ({ product, index }) => {
         <td onClick={openModal} className="listProducts-content-row-item">
           {count}
         </td>
-        <td onClick={openModal} className="listProducts-content-row-item">
+        <td
+          onClick={openModal}
+          className="listProducts-content-row-item listProducts-content-row-item-des"
+        >
           {description}
         </td>
         <td onClick={openModal} className="listProducts-content-row-item">
-          {price}
+          {price * 1000}
         </td>
         <td onClick={openModal} className="listProducts-content-row-item">
           <img src={img} alt="" className="listProducts-content-row-item-img" />

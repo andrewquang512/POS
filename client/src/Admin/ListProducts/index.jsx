@@ -59,7 +59,11 @@ const ListProducts = () => {
             <button
               onClick={() => setSelectFilter(-1)}
               className="button-filter-food"
-              style={selectFilter === -1 ? { backgroundColor: "red" } : {}}
+              style={
+                selectFilter === -1
+                  ? { backgroundColor: "red", color: "#333" }
+                  : {}
+              }
             >
               All
             </button>
@@ -69,7 +73,9 @@ const ListProducts = () => {
                   key={index}
                   onClick={() => setSelectFilter(index)}
                   style={
-                    selectFilter === index ? { backgroundColor: "red" } : {}
+                    selectFilter === index
+                      ? { backgroundColor: "red", color: "#333" }
+                      : {}
                   }
                   className="button-filter-food"
                 >
@@ -101,13 +107,7 @@ const ListProducts = () => {
         <table className="listProducts-content-table">
           <tbody className="tbody-nth">
             <tr className="listProducts-content-row-heading-table">
-              <th className="listProducts-content-row-heading">
-                <input
-                  type="checkbox"
-                  className="listProducts-content-row-checkbox"
-                />
-              </th>
-              <th className="listProducts-content-row-heading">STT</th>
+              <th className="listProducts-content-row-heading">SKU</th>
               <th className="listProducts-content-row-heading">Tên sản phẩm</th>
               <th className="listProducts-content-row-heading">
                 Kiểu sản phẩm
