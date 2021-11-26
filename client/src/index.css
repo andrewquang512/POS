@@ -210,7 +210,7 @@ code {
 .button-next {
 }
 .arrow-left-food {
-  border-right: 20px solid blue;
+  border-right: 20px solid #E33539;
   /* vertical-align: middle; */
   /* height: 100%; */
   /* margin-right: -15px; */
@@ -233,7 +233,7 @@ code {
 }
 .arrow-right-food {
   right: 53px;
-  border-left: 20px solid blue;
+  border-left: 20px solid #E33539;
 }
 /* .button-back::after{
   position: absolute;
@@ -280,7 +280,11 @@ code {
 }
 .filter-item-seleted {
   color: white;
-  background-color: #000d6b;
+  background: linear-gradient(
+    90deg,
+    hsla(29, 92%, 70%, 1) 0%,
+    hsla(0, 87%, 73%, 1) 100%
+  );
 }
 .filter-item-seleted:hover {
   background-color: none;
