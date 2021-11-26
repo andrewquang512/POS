@@ -15,13 +15,14 @@ export default function Menu(props) {
                     <Container>
                         <Row>
 
-                            {Foods.filter(Food => Food.typeId == props.typeId || props.typeId == -1).map(Food =>(
+                            {/* {Foods.filter(Food => Food.typeId == props.typeId || props.typeId == 0).map((Food, index) =>( */}
+                            {props.Foods.filter(Food => Food.catelory == props.type_id || props.typeId == 0).map((Food, index) =>(
                                 <Col sm={3}>
                                     <ShowCard
                                         name={Food.name}
                                         price={Food.price}
                                         image={Food.image}
-                                        SKU={Food.SKU}
+                                        SKU={index + 1}
                                         description={Food.description}
                                         food={Food}
                                         context={context}

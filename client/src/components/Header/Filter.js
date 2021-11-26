@@ -1,13 +1,15 @@
 import React, { useState, useRef, useEffect } from "react";
 import FoodFilter from "./FoodFilter";
 import Slider from "react-slick";
-import { Types } from "./Types";
+import {Types} from "./Types";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 // import { BorderLeft } from "@material-ui/icons";
-console.log(Types);
-const Filter = ({ x }) => {
+console.log("type...........<<<<<<..", Types);
+const Filter = ({ x, Foods, Typess }) => {
+  // Typess.push({image:"/image/FoodsType/ALL.jpg", name:"Tất cả món"})
+  console.log("x........Typess", Typess);
   const [selected, setSelected] = useState(-1);
   const ref = useRef({});
 
@@ -58,8 +60,8 @@ const Filter = ({ x }) => {
     };
   }, [selected]);
 
-  const [types, setTypes] = useState(Types);
-
+  // const [types, setTypes] = useState(Typess);
+  // console.log("asdfgh", Typess)
   return (
     <>
       <div className="backtohome">
@@ -74,24 +76,30 @@ const Filter = ({ x }) => {
 
       {/* <ul className="filter-list"> */}
       <Slider ref={ref} {...settings}>
-        <FoodFilter
+        {/* <FoodFilter
           handleOneSelected={handleOneSelected}
           selected={selected}
-          key={-1}
+          key={0}
           name="Tất cả món"
-          id={-1}
+          id={0}
           x_value={x}
-        />
-        {types.map((typeFood, index) => {
+        /> */}
+        {Typess.map((typeFood, index) => {
           return (
             <FoodFilter
               handleOneSelected={handleOneSelected}
               selected={selected}
               // className={}
-              key={typeFood.typeId}
-              name={typeFood.typeName}
-              id={typeFood.typeId}
+              key={typeFood._id}
+              name={typeFood.name}
+              id={index}
               x_value={x}
+              Typesss={Typess}
+              _id={typeFood._id}
+              // key={typeFood.typeId}
+              // name={typeFood.typeName}
+              // id={typeFood.typeId}
+              // x_value={x}
             />
           );
         })}
