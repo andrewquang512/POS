@@ -2,8 +2,8 @@ import React, { useRef, useState } from "react";
 
 import ListTypeProducts from "../TypeProducts";
 
-const TypeProducts = ListTypeProducts;
-console.log("TypeProducts", TypeProducts)
+// const TypeProducts = ListTypeProducts;
+// console.log("TypeProducts", TypeProducts)
 
 const FoodFilter = ({ name, id, selected, handleOneSelected, x_value, Typesss, _id}) => {
 // const FoodFilter = ({ name, id, selected, handleOneSelected, x_value, Typesss, _id}) => {

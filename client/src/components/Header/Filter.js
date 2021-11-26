@@ -6,7 +6,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 // import { BorderLeft } from "@material-ui/icons";
-console.log("type...........<<<<<<..", Types);
+// console.log("type...........<<<<<<..", Types);
 const Filter = ({ x, Foods, Typess }) => {
   // Typess.push({image:"/image/FoodsType/ALL.jpg", name:"Tất cả món"})
   console.log("x........Typess", Typess);
