@@ -75,6 +75,7 @@ const AddModal = () => {
     // };
     console.log(newProduct);
     addProduct(data);
+    closeModal();
     // axios
     //   .post("http://localhost:5000/api/product", newProduct)
     //   .then((res) => console.log(res))
@@ -129,7 +130,7 @@ const AddModal = () => {
               </div>
               <div className="input-container">
                 <label htmlFor="" className="input-label">
-                  Số lượng
+                  Loại
                 </label>
                 <select
                   required
@@ -141,14 +142,19 @@ const AddModal = () => {
                   <option value="" selected disabled hidden>
                     Choose here
                   </option>
-                  {typeProducts.map((typeProduct, index) => (
-                    <option value={typeProduct._id}>{typeProduct.name}</option>
-                  ))}
+                  {typeProducts.map((typeProduct, index) => {
+                    if (index !== 0)
+                      return (
+                        <option value={typeProduct._id}>
+                          {typeProduct.name}
+                        </option>
+                      );
+                  })}
                 </select>
               </div>
               <div className="input-container">
                 <label htmlFor="" className="input-label">
-                  Giá
+                  Giá(Ngàn)
                 </label>
                 <input
                   className="input-box"

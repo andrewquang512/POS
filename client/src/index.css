@@ -17,7 +17,7 @@ body {
 /* .background3 {
   background-attachment:fixed;
   background-image: url(https://images.foody.vn/res/g17/163559/prof/s576x330/foody-upload-api-foody-mobile-ava-200611105913.jpg); */
-  /* background-size: cover; */
+/* background-size: cover; */
 /* } */
 * {
   box-sizing: inherit;
@@ -163,6 +163,11 @@ code {
   transition: all 0.3s;
   cursor: pointer;
   margin-bottom: 15px;
+  /* text-anchor: middle; */
+  vertical-align: middle;
+  padding-top: -35px;
+  /* margin-top: 27px; */
+  padding-bottom: 43px;
 }
 .iconTotalPrice {
   vertical-align: middle;
@@ -221,7 +226,7 @@ code {
 .button-next {
 }
 .arrow-left-food {
-  border-right: 20px solid #E33539;
+  border-right: 20px solid #e33539;
   /* vertical-align: middle; */
   /* height: 100%; */
   /* margin-right: -15px; */
@@ -244,7 +249,7 @@ code {
 }
 .arrow-right-food {
   right: 53px;
-  border-left: 20px solid #E33539;
+  border-left: 20px solid #e33539;
 }
 /* .button-back::after{
   position: absolute;
@@ -272,12 +277,12 @@ code {
   width: 200px;
   height: 150px;
   /* height: 120px; */
-  background-color: 	white;
+  background-color: white;
   /* box-sizing: border-box; */
   border-radius: 6px;
   border: 1px solid #ccc;
   display: inline-block;
-  color: #FF3333;
+  color: #ff3333;
   cursor: pointer;
   transition: all 0.2s ease;
   margin: 10px;
@@ -296,7 +301,7 @@ code {
     hsla(29, 92%, 70%, 1) 0%,
     hsla(0, 87%, 73%, 1) 100%
   ); */
-  background-color: rgba(132,84,27, 0.8);
+  background-color: rgba(132, 84, 27, 0.8);
 }
 .filter-item-seleted:hover {
   background-color: none;

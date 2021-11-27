@@ -229,12 +229,12 @@ tr:nth-child(even) {
   margin: 16px 0;
 }
 .input-label {
-  min-width: 92px;
+  min-width: 100px;
   text-align: left;
   font-size: 18px;
 }
 .input-box {
-  /* flex: 1; */
+  flex: 1;
   padding: 4px 6px;
   font-size: 14px;
   border: 1px solid #ccc;

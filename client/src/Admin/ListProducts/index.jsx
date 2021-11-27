@@ -68,20 +68,21 @@ const ListProducts = () => {
               All
             </button>
             {typeProducts.map((typeProduct, index) => {
-              return (
-                <button
-                  key={index}
-                  onClick={() => setSelectFilter(index)}
-                  style={
-                    selectFilter === index
-                      ? { backgroundColor: "red", color: "#333" }
-                      : {}
-                  }
-                  className="button-filter-food"
-                >
-                  {typeProduct.name}
-                </button>
-              );
+              if (index !== 0)
+                return (
+                  <button
+                    key={index}
+                    onClick={() => setSelectFilter(index)}
+                    style={
+                      selectFilter === index
+                        ? { backgroundColor: "red", color: "#333" }
+                        : {}
+                    }
+                    className="button-filter-food"
+                  >
+                    {typeProduct.name}
+                  </button>
+                );
             })}
           </div>
         )}
@@ -131,14 +132,6 @@ const ListProducts = () => {
             })}
           </tbody>
         </table>
-        <div className="listProducts-page">
-          <button className="page-button">
-            <i id="backPage" className="fas fa-step-backward"></i>
-          </button>
-          <button className="page-button">
-            <i id="nextPage" className="fas fa-step-forward"></i>
-          </button>
-        </div>
       </div>
 
       <div className="modal-hoangkui-add modal-hoangkui">
