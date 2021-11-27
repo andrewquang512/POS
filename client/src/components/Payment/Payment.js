@@ -36,9 +36,9 @@ const Payment = () => {
     if (!this[a.name]) {
       this[a.name] = {
         name: a.name,
-        quantity: a.Soluong,
+        quantity: a.want,
         price: a.price,
-        img: a.image,
+        img: a.img,
       }
       ListItems.push(this[a.name])
     }
@@ -48,7 +48,6 @@ const Payment = () => {
     setModalOpened(false)
   }
   const handlenameChange = (event) => {
-    console.log(event.target.value)
     if (!event.target.value) {
       setnameerror(true)
     } else {
@@ -88,7 +87,6 @@ const Payment = () => {
         if (table === '') settableerror(true)
         if (table === 'Select the table') settableerror(true)
       } else {
-        console.log(table)
         setState(state + 1)
       }
     } else if (usingMethod === 'Online') {
@@ -106,6 +104,13 @@ const Payment = () => {
   }
   const handleSubmit = async (event) => {
     event.preventDefault()
+    // const data = {
+    //   userName: ordername,
+    //   usingMethod: orderusingMethod,
+    //   totalPrice: total,
+    //   OrderItems: ListItems,
+    // }
+    // console.log(data)
     try {
       await axios
         .post(`http://localhost:5000/api/orders/`, {
