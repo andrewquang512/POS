@@ -6,7 +6,7 @@ const Cartreview = (props) => {
   return (
     <>
       <li key={props.item.SKU} className='cart-item'>
-        <img src={props.item.image} alt='' className='cart-item-img-src' />
+        <img src={props.item.img} alt='' className='cart-item-img-src' />
         <div className='cart-item-content'>
           <p className='cart-item-content-title'>
             {props.index + 1}. {props.item.name}
