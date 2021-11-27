@@ -26,13 +26,17 @@ export default function KingOfFilter(props) {
     if(Types[props.typeId]) console.log("id...............>>>>>", props.typeId)
     return (
         <>
-            <Filter 
-                x={props.x} 
-                Foods={Foods} 
-                Typess={Types} 
-            />
-            <ShowInforLine typeId={props.typeId} typeProduct={Types}/>
-            {Types[props.typeId] && <Menu typeId={props.typeId} Foods={Foods} type_id={Types[props.typeId]._id}/>}
+            <div className="background">
+                <Filter 
+                    x={props.x} 
+                    Foods={Foods} 
+                    Typess={Types} 
+                />
+            </div>
+            <div className="background3">
+                <ShowInforLine typeId={props.typeId} typeProduct={Types}/>
+                {Types[props.typeId] && <Menu typeId={props.typeId} Foods={Foods} type_id={Types[props.typeId]._id}/>}
+            </div>
         </>
     )
 }
