@@ -44,6 +44,14 @@ Go [here](https://github.com/andrewquang512/POS/blob/master/report/Requirement/R
   - Shipper
   - Restaurant manager
 
+**Scope of the project:**
+  - The interface mainly consists of food images, therefore there is not too much text. You only have to do a few actions to successfully place an order.
+  - The system will have a server to retrieve customer information, Customer account information can only be accessed by customers who have registered for that account.
+  - With phones, tablets, laptops with different browsers, the system must completely show basic functions as item selection, order confirmation, payment.
+  - POS Store customer’s invoice information include: unique identifier for each checkout, the names of the products being paid and our prices, total amount of the invoice, promotion code is applied to the invoice payment form (if any).
+  - For managers, POS can report sales, the list invoices, and the list of bills filtered for a specified determined date.
+  - The POS only keeps the necessary information of the product when presented in-app: product name, product type, product price
+
 **Use case diagram for whole system:**
 
 ![alt text](https://github.com/andrewquang512/POS/blob/master/report/Requirement/images/usecase_system.png)
