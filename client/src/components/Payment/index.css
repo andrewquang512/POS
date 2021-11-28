@@ -27,6 +27,8 @@
 .modal-body {
   display: flex;
   width: 100%;
+  flex-direction: row;
+  justify-content: center;
 }
 .method {
   width: 100%;

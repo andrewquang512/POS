@@ -1,6 +1,6 @@
 import React, { useReducer } from "react";
 import ShopContext from "./ShopContext";
-import { shopReducer, ADD_PRODUCT, REMOVE_PRODUCT,REMOVE_ALL } from "./reducers";
+import { shopReducer, ADD_PRODUCT, REMOVE_PRODUCT, REMOVE_ALL } from "./reducers";
 
 function GlobalState(props) {
 
@@ -23,7 +23,7 @@ function GlobalState(props) {
         cart: cartState.cart,
         addProductToCart: addProductToCart,
         removeProductFromCart: removeProductFromCart,
-        removeAll:removeAll
+        removeAll: removeAll
       }}
     >
       {props.children}

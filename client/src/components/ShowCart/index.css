@@ -65,15 +65,6 @@
     display: block;
     z-index: 2;
 }
-.cart.description {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    width: 80%;
-    color: #000;
-    text-align: justify;
-    text-justify: inter-word;
-}
 .cart-header-title .fa-shopping-cart{
  margin-right: 8px;   
 }
@@ -84,12 +75,6 @@
     margin-right: 8px;
     font-weight: bold;
     border-radius: 10px;
-}
-.cart.cart-quantity {
-    font-size: 30px;
-    font-weight: bold;
-    font-style: italic;
-    font-variant: small-caps;
 }
 .cart-list{
 display: block;
