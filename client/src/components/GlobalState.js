@@ -8,6 +8,8 @@ function GlobalState(props) {
 
   const addProductToCart = product => {
     dispatch({ type: ADD_PRODUCT, product: product });
+  // const addProductToCart = (product, num) => {
+  //   dispatch({ type: ADD_PRODUCT, product: product, num: num });
   };
   const removeAll = product => {
     dispatch({ type: REMOVE_ALL, product: product });
