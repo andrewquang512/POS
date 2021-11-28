@@ -6,6 +6,31 @@ Point of sale (POS) or point of purchase is the time and place where a retail tr
 
 ![alt text](https://github.com/andrewquang512/POS/blob/master/report/workflow.png)
 
+# How to install
+If this is the first time you run, please do below steps in terminal:
+Step 1: install client
+```
+cd client
+npm install
+```
+Step 2: install server
+```
+cd server
+npm install
+```
+
+# How to run
+Step 1: run client
+```
+cd client
+npm start
+```
+Step 2: run server
+```
+cd server
+npm start
+```
+
 # [Requirement elicitation](https://github.com/andrewquang512/POS/blob/master/report/Requirement/Requirment.pdf)
 Go [here](https://github.com/andrewquang512/POS/blob/master/report/Requirement/Requirment.pdf) for more details
 
