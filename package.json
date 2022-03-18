@@ -8,7 +8,7 @@
     "server": "cd server && nodemon server",
     "client": "cd client && npm run start",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "heroku-postbuild": "cd client && npm install && npm run build"
+    "heroku-postbuild": "cd client && npm install && CI=false npm run build"
   },
   "author": "",
   "license": "ISC",
